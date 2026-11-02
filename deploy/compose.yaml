@@ -47,6 +47,7 @@ services:
     environment: *owner-env
   api:
     <<: *app
+    networks: [frontend, backend]
     environment:
       HTTP_HOST: 0.0.0.0
       HTTP_PORT: '8080'
@@ -65,6 +66,8 @@ services:
     ports: ['127.0.0.1:18080:8080']
     restart: unless-stopped
 networks:
+  frontend:
+    name: unctom_tz_geolocations_frontend
   backend:
     name: unctom_tz_geolocations_backend
     internal: true

@@ -158,3 +158,18 @@ volume recovery and external repository/restore testing remain to commission.
 
 References: https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images
 and https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows
+
+## Internal health passes but host readiness fails
+
+The API joins both the frontend bridge and the internal backend. PostgreSQL and
+one-off tools join only backend. An API attached exclusively to an internal
+bridge can have working in-container healthchecks but no working published host
+port. The separate frontend enables the existing 127.0.0.1:18080 publication; it
+does not expose the database or bind the API to the public IP.
+
+For the corrected Compose file, extract the newly reviewed release under its
+commit SHA, keep the initialized database and its existing volume, and rerun
+server.sh deploy with that release SHA and the already published API digest.
+No bootstrap, reimport, database restart or database-volume removal is needed.
+A successful in-container /healthcheck does not prove host publication; the
+deployment's host-side regions query must also pass.
