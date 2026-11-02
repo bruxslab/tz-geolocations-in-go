@@ -1,0 +1,3099 @@
+{
+  "source_commit": "d835ea318dbb17f789d4b7195b600e2e07e20f1e",
+  "seed_sha256": "a6633d4a581aa403c9ccc249a37455b2a2a77862adf061b4c75840f1b35e1834",
+  "cases": [
+    {
+      "path": "/",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "name": "tz-locations-api",
+        "description": "Tanzania Locations API — Regions, Districts, Wards, Streets & Postcodes",
+        "version": "1.0.0",
+        "docs": "/v1/docs",
+        "endpoints": {
+          "regions": "/v1/regions",
+          "districts": "/v1/districts/:slug",
+          "wards": "/v1/wards/:slug",
+          "streets": "/v1/streets/:id",
+          "postcodes": "/v1/postcodes/:postcode",
+          "search": "/v1/search?q=query",
+          "autocomplete": "/v1/autocomplete?q=query",
+          "stats": "/v1/stats"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/regions",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": [
+          {
+            "id": 1,
+            "name": "Arusha",
+            "slug": "arusha",
+            "district_count": 7,
+            "_links": {
+              "self": "/v1/regions/arusha",
+              "districts": "/v1/regions/arusha/districts"
+            }
+          },
+          {
+            "id": 2,
+            "name": "Dar Es Salaam",
+            "slug": "dar-es-salaam",
+            "district_count": 6,
+            "_links": {
+              "self": "/v1/regions/dar-es-salaam",
+              "districts": "/v1/regions/dar-es-salaam/districts"
+            }
+          },
+          {
+            "id": 3,
+            "name": "Dodoma",
+            "slug": "dodoma",
+            "district_count": 8,
+            "_links": {
+              "self": "/v1/regions/dodoma",
+              "districts": "/v1/regions/dodoma/districts"
+            }
+          },
+          {
+            "id": 4,
+            "name": "Geita",
+            "slug": "geita",
+            "district_count": 5,
+            "_links": {
+              "self": "/v1/regions/geita",
+              "districts": "/v1/regions/geita/districts"
+            }
+          },
+          {
+            "id": 5,
+            "name": "Iringa",
+            "slug": "iringa",
+            "district_count": 4,
+            "_links": {
+              "self": "/v1/regions/iringa",
+              "districts": "/v1/regions/iringa/districts"
+            }
+          },
+          {
+            "id": 6,
+            "name": "Kagera",
+            "slug": "kagera",
+            "district_count": 8,
+            "_links": {
+              "self": "/v1/regions/kagera",
+              "districts": "/v1/regions/kagera/districts"
+            }
+          },
+          {
+            "id": 7,
+            "name": "Katavi",
+            "slug": "katavi",
+            "district_count": 3,
+            "_links": {
+              "self": "/v1/regions/katavi",
+              "districts": "/v1/regions/katavi/districts"
+            }
+          },
+          {
+            "id": 8,
+            "name": "Kigoma",
+            "slug": "kigoma",
+            "district_count": 7,
+            "_links": {
+              "self": "/v1/regions/kigoma",
+              "districts": "/v1/regions/kigoma/districts"
+            }
+          },
+          {
+            "id": 9,
+            "name": "Kilimanjaro",
+            "slug": "kilimanjaro",
+            "district_count": 7,
+            "_links": {
+              "self": "/v1/regions/kilimanjaro",
+              "districts": "/v1/regions/kilimanjaro/districts"
+            }
+          },
+          {
+            "id": 10,
+            "name": "Lindi",
+            "slug": "lindi",
+            "district_count": 6,
+            "_links": {
+              "self": "/v1/regions/lindi",
+              "districts": "/v1/regions/lindi/districts"
+            }
+          },
+          {
+            "id": 11,
+            "name": "Manyara",
+            "slug": "manyara",
+            "district_count": 6,
+            "_links": {
+              "self": "/v1/regions/manyara",
+              "districts": "/v1/regions/manyara/districts"
+            }
+          },
+          {
+            "id": 12,
+            "name": "Mara",
+            "slug": "mara",
+            "district_count": 6,
+            "_links": {
+              "self": "/v1/regions/mara",
+              "districts": "/v1/regions/mara/districts"
+            }
+          },
+          {
+            "id": 13,
+            "name": "Mbeya",
+            "slug": "mbeya",
+            "district_count": 6,
+            "_links": {
+              "self": "/v1/regions/mbeya",
+              "districts": "/v1/regions/mbeya/districts"
+            }
+          },
+          {
+            "id": 14,
+            "name": "Mjini Magharibi",
+            "slug": "mjini-magharibi",
+            "district_count": 2,
+            "_links": {
+              "self": "/v1/regions/mjini-magharibi",
+              "districts": "/v1/regions/mjini-magharibi/districts"
+            }
+          },
+          {
+            "id": 15,
+            "name": "Morogoro",
+            "slug": "morogoro",
+            "district_count": 8,
+            "_links": {
+              "self": "/v1/regions/morogoro",
+              "districts": "/v1/regions/morogoro/districts"
+            }
+          },
+          {
+            "id": 16,
+            "name": "Mtwara",
+            "slug": "mtwara",
+            "district_count": 6,
+            "_links": {
+              "self": "/v1/regions/mtwara",
+              "districts": "/v1/regions/mtwara/districts"
+            }
+          },
+          {
+            "id": 17,
+            "name": "Mwanza",
+            "slug": "mwanza",
+            "district_count": 7,
+            "_links": {
+              "self": "/v1/regions/mwanza",
+              "districts": "/v1/regions/mwanza/districts"
+            }
+          },
+          {
+            "id": 18,
+            "name": "Njombe",
+            "slug": "njombe",
+            "district_count": 5,
+            "_links": {
+              "self": "/v1/regions/njombe",
+              "districts": "/v1/regions/njombe/districts"
+            }
+          },
+          {
+            "id": 19,
+            "name": "Pemba North",
+            "slug": "pemba-north",
+            "district_count": 2,
+            "_links": {
+              "self": "/v1/regions/pemba-north",
+              "districts": "/v1/regions/pemba-north/districts"
+            }
+          },
+          {
+            "id": 20,
+            "name": "Pemba South",
+            "slug": "pemba-south",
+            "district_count": 2,
+            "_links": {
+              "self": "/v1/regions/pemba-south",
+              "districts": "/v1/regions/pemba-south/districts"
+            }
+          },
+          {
+            "id": 21,
+            "name": "Pwani",
+            "slug": "pwani",
+            "district_count": 8,
+            "_links": {
+              "self": "/v1/regions/pwani",
+              "districts": "/v1/regions/pwani/districts"
+            }
+          },
+          {
+            "id": 22,
+            "name": "Rukwa",
+            "slug": "rukwa",
+            "district_count": 4,
+            "_links": {
+              "self": "/v1/regions/rukwa",
+              "districts": "/v1/regions/rukwa/districts"
+            }
+          },
+          {
+            "id": 23,
+            "name": "Ruvuma",
+            "slug": "ruvuma",
+            "district_count": 6,
+            "_links": {
+              "self": "/v1/regions/ruvuma",
+              "districts": "/v1/regions/ruvuma/districts"
+            }
+          },
+          {
+            "id": 24,
+            "name": "Shinyanga",
+            "slug": "shinyanga",
+            "district_count": 4,
+            "_links": {
+              "self": "/v1/regions/shinyanga",
+              "districts": "/v1/regions/shinyanga/districts"
+            }
+          },
+          {
+            "id": 25,
+            "name": "Simiyu",
+            "slug": "simiyu",
+            "district_count": 5,
+            "_links": {
+              "self": "/v1/regions/simiyu",
+              "districts": "/v1/regions/simiyu/districts"
+            }
+          },
+          {
+            "id": 26,
+            "name": "Singida",
+            "slug": "singida",
+            "district_count": 6,
+            "_links": {
+              "self": "/v1/regions/singida",
+              "districts": "/v1/regions/singida/districts"
+            }
+          },
+          {
+            "id": 27,
+            "name": "Songwe",
+            "slug": "songwe",
+            "district_count": 4,
+            "_links": {
+              "self": "/v1/regions/songwe",
+              "districts": "/v1/regions/songwe/districts"
+            }
+          },
+          {
+            "id": 28,
+            "name": "Tabora",
+            "slug": "tabora",
+            "district_count": 7,
+            "_links": {
+              "self": "/v1/regions/tabora",
+              "districts": "/v1/regions/tabora/districts"
+            }
+          },
+          {
+            "id": 29,
+            "name": "Tanga",
+            "slug": "tanga",
+            "district_count": 9,
+            "_links": {
+              "self": "/v1/regions/tanga",
+              "districts": "/v1/regions/tanga/districts"
+            }
+          },
+          {
+            "id": 30,
+            "name": "Unguja North",
+            "slug": "unguja-north",
+            "district_count": 2,
+            "_links": {
+              "self": "/v1/regions/unguja-north",
+              "districts": "/v1/regions/unguja-north/districts"
+            }
+          },
+          {
+            "id": 31,
+            "name": "Unguja South",
+            "slug": "unguja-south",
+            "district_count": 2,
+            "_links": {
+              "self": "/v1/regions/unguja-south",
+              "districts": "/v1/regions/unguja-south/districts"
+            }
+          }
+        ],
+        "meta": {
+          "total": 31
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/regions/arusha",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": {
+          "id": 1,
+          "name": "Arusha",
+          "slug": "arusha",
+          "district_count": 7,
+          "ward_count": 158,
+          "street_count": 1865,
+          "_links": {
+            "self": "/v1/regions/arusha",
+            "districts": "/v1/regions/arusha/districts"
+          }
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/regions/dar-es-salaam",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": {
+          "id": 2,
+          "name": "Dar Es Salaam",
+          "slug": "dar-es-salaam",
+          "district_count": 6,
+          "ward_count": 102,
+          "street_count": 565,
+          "_links": {
+            "self": "/v1/regions/dar-es-salaam",
+            "districts": "/v1/regions/dar-es-salaam/districts"
+          }
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/regions/dar-es-salaam/districts",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": [
+          {
+            "id": 8,
+            "name": "Ilala",
+            "slug": "ilala",
+            "ward_count": 27,
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/districts/ilala",
+              "wards": "/v1/districts/ilala/wards",
+              "region": "/v1/regions/dar-es-salaam"
+            }
+          },
+          {
+            "id": 9,
+            "name": "Ilala CBD",
+            "slug": "ilala-cbd",
+            "ward_count": 9,
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/districts/ilala-cbd",
+              "wards": "/v1/districts/ilala-cbd/wards",
+              "region": "/v1/regions/dar-es-salaam"
+            }
+          },
+          {
+            "id": 10,
+            "name": "Kigamboni",
+            "slug": "kigamboni",
+            "ward_count": 9,
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/districts/kigamboni",
+              "wards": "/v1/districts/kigamboni/wards",
+              "region": "/v1/regions/dar-es-salaam"
+            }
+          },
+          {
+            "id": 11,
+            "name": "Kinondoni",
+            "slug": "kinondoni",
+            "ward_count": 20,
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/districts/kinondoni",
+              "wards": "/v1/districts/kinondoni/wards",
+              "region": "/v1/regions/dar-es-salaam"
+            }
+          },
+          {
+            "id": 12,
+            "name": "Temeke",
+            "slug": "temeke",
+            "ward_count": 23,
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/districts/temeke",
+              "wards": "/v1/districts/temeke/wards",
+              "region": "/v1/regions/dar-es-salaam"
+            }
+          },
+          {
+            "id": 13,
+            "name": "Ubungo",
+            "slug": "ubungo",
+            "ward_count": 14,
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/districts/ubungo",
+              "wards": "/v1/districts/ubungo/wards",
+              "region": "/v1/regions/dar-es-salaam"
+            }
+          }
+        ],
+        "meta": {
+          "total": 6,
+          "region": "Dar Es Salaam"
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/regions/unknown",
+      "status": 404,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "Region 'unknown' not found"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/regions/unknown/districts",
+      "status": 404,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "Region 'unknown' not found"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/regions/INVALID",
+      "status": 400,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "BAD_REQUEST",
+          "message": "Invalid slug format"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/districts/ilala",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": {
+          "id": 8,
+          "name": "Ilala",
+          "slug": "ilala",
+          "ward_count": 27,
+          "street_count": 136,
+          "region": {
+            "name": "Dar Es Salaam",
+            "slug": "dar-es-salaam"
+          },
+          "_links": {
+            "self": "/v1/districts/ilala",
+            "wards": "/v1/districts/ilala/wards",
+            "region": "/v1/regions/dar-es-salaam"
+          }
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/districts/ilala/wards",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": [
+          {
+            "id": 159,
+            "name": "Bonyokwa",
+            "slug": "bonyokwa",
+            "postcode": "12120",
+            "street_count": 3,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/bonyokwa",
+              "streets": "/v1/wards/bonyokwa/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 160,
+            "name": "Buguruni",
+            "slug": "buguruni",
+            "postcode": "12102",
+            "street_count": 4,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/buguruni",
+              "streets": "/v1/wards/buguruni/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 161,
+            "name": "Buyuni",
+            "slug": "buyuni",
+            "postcode": "12124",
+            "street_count": 7,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/buyuni",
+              "streets": "/v1/wards/buyuni/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 162,
+            "name": "Chanika",
+            "slug": "chanika",
+            "postcode": "12115",
+            "street_count": 9,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/chanika",
+              "streets": "/v1/wards/chanika/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 163,
+            "name": "Gongo La Mboto",
+            "slug": "gongo-la-mboto",
+            "postcode": "12110",
+            "street_count": 4,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/gongo-la-mboto",
+              "streets": "/v1/wards/gongo-la-mboto/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 164,
+            "name": "Ilala",
+            "slug": "ilala",
+            "postcode": "12101",
+            "street_count": 5,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/ilala",
+              "streets": "/v1/wards/ilala/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 165,
+            "name": "Kimanga",
+            "slug": "kimanga",
+            "postcode": "12104",
+            "street_count": 7,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/kimanga",
+              "streets": "/v1/wards/kimanga/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 166,
+            "name": "Kinyerezi",
+            "slug": "kinyerezi",
+            "postcode": "12116",
+            "street_count": 6,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/kinyerezi",
+              "streets": "/v1/wards/kinyerezi/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 167,
+            "name": "Kipawa",
+            "slug": "kipawa",
+            "postcode": "12106",
+            "street_count": 6,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/kipawa",
+              "streets": "/v1/wards/kipawa/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 168,
+            "name": "Kipunguni",
+            "slug": "kipunguni",
+            "postcode": "12121",
+            "street_count": 4,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/kipunguni",
+              "streets": "/v1/wards/kipunguni/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 169,
+            "name": "Kisukulu",
+            "slug": "kisukulu",
+            "postcode": "12122",
+            "street_count": 3,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/kisukulu",
+              "streets": "/v1/wards/kisukulu/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 170,
+            "name": "Kitunda",
+            "slug": "kitunda",
+            "postcode": "12111",
+            "street_count": 4,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/kitunda",
+              "streets": "/v1/wards/kitunda/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 171,
+            "name": "Kivule",
+            "slug": "kivule",
+            "postcode": "12117",
+            "street_count": 4,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/kivule",
+              "streets": "/v1/wards/kivule/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 172,
+            "name": "Kiwalani",
+            "slug": "kiwalani",
+            "postcode": "12108",
+            "street_count": 3,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/kiwalani",
+              "streets": "/v1/wards/kiwalani/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 173,
+            "name": "Liwiti",
+            "slug": "liwiti",
+            "postcode": "12119",
+            "street_count": 4,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/liwiti",
+              "streets": "/v1/wards/liwiti/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 174,
+            "name": "Majohe",
+            "slug": "majohe",
+            "postcode": "12113",
+            "street_count": 5,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/majohe",
+              "streets": "/v1/wards/majohe/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 175,
+            "name": "Minazi Mirefu",
+            "slug": "minazi-mirefu",
+            "postcode": "12123",
+            "street_count": 3,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/minazi-mirefu",
+              "streets": "/v1/wards/minazi-mirefu/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 176,
+            "name": "Mnyamani",
+            "slug": "mnyamani",
+            "postcode": "12118",
+            "street_count": 4,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/mnyamani",
+              "streets": "/v1/wards/mnyamani/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 177,
+            "name": "Msongola",
+            "slug": "msongola",
+            "postcode": "12114",
+            "street_count": 9,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/msongola",
+              "streets": "/v1/wards/msongola/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 178,
+            "name": "Mzinga",
+            "slug": "mzinga",
+            "postcode": "12126",
+            "street_count": 3,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/mzinga",
+              "streets": "/v1/wards/mzinga/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 179,
+            "name": "Pugu",
+            "slug": "pugu",
+            "postcode": "12112",
+            "street_count": 5,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/pugu",
+              "streets": "/v1/wards/pugu/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 180,
+            "name": "Pugu Station",
+            "slug": "pugu-station",
+            "postcode": "12127",
+            "street_count": 3,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/pugu-station",
+              "streets": "/v1/wards/pugu-station/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 181,
+            "name": "Segerea",
+            "slug": "segerea",
+            "postcode": "12105",
+            "street_count": 4,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/segerea",
+              "streets": "/v1/wards/segerea/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 182,
+            "name": "Tabata",
+            "slug": "tabata",
+            "postcode": "12103",
+            "street_count": 8,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/tabata",
+              "streets": "/v1/wards/tabata/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 183,
+            "name": "Ukonga",
+            "slug": "ukonga",
+            "postcode": "12107",
+            "street_count": 5,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/ukonga",
+              "streets": "/v1/wards/ukonga/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 184,
+            "name": "Vingunguti",
+            "slug": "vingunguti",
+            "postcode": "12109",
+            "street_count": 6,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/vingunguti",
+              "streets": "/v1/wards/vingunguti/streets",
+              "district": "/v1/districts/ilala"
+            }
+          },
+          {
+            "id": 185,
+            "name": "Zingiziwa",
+            "slug": "zingiziwa",
+            "postcode": "12125",
+            "street_count": 8,
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/wards/zingiziwa",
+              "streets": "/v1/wards/zingiziwa/streets",
+              "district": "/v1/districts/ilala"
+            }
+          }
+        ],
+        "meta": {
+          "total": 27,
+          "district": "Ilala"
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/districts/arumeru/wards",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": [
+          {
+            "id": 1,
+            "name": "Akheri",
+            "slug": "akheri",
+            "postcode": "23306",
+            "street_count": 13,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/akheri",
+              "streets": "/v1/wards/akheri/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 2,
+            "name": "Ambureni",
+            "slug": "ambureni",
+            "postcode": "23325",
+            "street_count": 7,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/ambureni",
+              "streets": "/v1/wards/ambureni/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 3,
+            "name": "Imbaseni",
+            "slug": "imbaseni",
+            "postcode": "23324",
+            "street_count": 14,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/imbaseni",
+              "streets": "/v1/wards/imbaseni/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 4,
+            "name": "Kikatiti",
+            "slug": "kikatiti",
+            "postcode": "23315",
+            "street_count": 19,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/kikatiti",
+              "streets": "/v1/wards/kikatiti/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 5,
+            "name": "Kikwe",
+            "slug": "kikwe",
+            "postcode": "23311",
+            "street_count": 16,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/kikwe",
+              "streets": "/v1/wards/kikwe/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 6,
+            "name": "King'ori",
+            "slug": "kingori",
+            "postcode": "23316",
+            "street_count": 32,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/kingori",
+              "streets": "/v1/wards/kingori/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 7,
+            "name": "Leguruki",
+            "slug": "leguruki",
+            "postcode": "23317",
+            "street_count": 19,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/leguruki",
+              "streets": "/v1/wards/leguruki/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 8,
+            "name": "Majengo",
+            "slug": "majengo",
+            "postcode": "23319",
+            "street_count": 9,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/majengo",
+              "streets": "/v1/wards/majengo/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 9,
+            "name": "Maji Ya Chai",
+            "slug": "maji-ya-chai",
+            "postcode": "23302",
+            "street_count": 19,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/maji-ya-chai",
+              "streets": "/v1/wards/maji-ya-chai/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 10,
+            "name": "Makiba",
+            "slug": "makiba",
+            "postcode": "23313",
+            "street_count": 16,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/makiba",
+              "streets": "/v1/wards/makiba/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 11,
+            "name": "Malula",
+            "slug": "malula",
+            "postcode": "23320",
+            "street_count": 17,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/malula",
+              "streets": "/v1/wards/malula/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 12,
+            "name": "Maroroni",
+            "slug": "maroroni",
+            "postcode": "23314",
+            "street_count": 17,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/maroroni",
+              "streets": "/v1/wards/maroroni/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 13,
+            "name": "Maruvango",
+            "slug": "maruvango",
+            "postcode": "23323",
+            "street_count": 16,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/maruvango",
+              "streets": "/v1/wards/maruvango/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 14,
+            "name": "Mbuguni",
+            "slug": "mbuguni",
+            "postcode": "23312",
+            "street_count": 19,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/mbuguni",
+              "streets": "/v1/wards/mbuguni/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 15,
+            "name": "Ngabobo",
+            "slug": "ngabobo",
+            "postcode": "23322",
+            "street_count": 8,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/ngabobo",
+              "streets": "/v1/wards/ngabobo/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 16,
+            "name": "Ngarenanyuki",
+            "slug": "ngarenanyuki",
+            "postcode": "23310",
+            "street_count": 13,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/ngarenanyuki",
+              "streets": "/v1/wards/ngarenanyuki/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 17,
+            "name": "Nkoanekoli",
+            "slug": "nkoanekoli",
+            "postcode": "23326",
+            "street_count": 13,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/nkoanekoli",
+              "streets": "/v1/wards/nkoanekoli/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 18,
+            "name": "Nkoanrua",
+            "slug": "nkoanrua",
+            "postcode": "23308",
+            "street_count": 12,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/nkoanrua",
+              "streets": "/v1/wards/nkoanrua/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 19,
+            "name": "Nkoaranga",
+            "slug": "nkoaranga",
+            "postcode": "23303",
+            "street_count": 15,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/nkoaranga",
+              "streets": "/v1/wards/nkoaranga/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 20,
+            "name": "Nkoarisambu",
+            "slug": "nkoarisambu",
+            "postcode": "23307",
+            "street_count": 11,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/nkoarisambu",
+              "streets": "/v1/wards/nkoarisambu/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 21,
+            "name": "Poli",
+            "slug": "poli",
+            "postcode": "23304",
+            "street_count": 10,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/poli",
+              "streets": "/v1/wards/poli/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 22,
+            "name": "Seela Sing'isi",
+            "slug": "seela-singisi",
+            "postcode": "23305",
+            "street_count": 14,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/seela-singisi",
+              "streets": "/v1/wards/seela-singisi/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 23,
+            "name": "Shambarai Burka",
+            "slug": "shambarai-burka",
+            "postcode": "23318",
+            "street_count": 17,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/shambarai-burka",
+              "streets": "/v1/wards/shambarai-burka/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 24,
+            "name": "Songoro",
+            "slug": "songoro",
+            "postcode": "23309",
+            "street_count": 26,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/songoro",
+              "streets": "/v1/wards/songoro/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 25,
+            "name": "Usa River",
+            "slug": "usa-river",
+            "postcode": "23301",
+            "street_count": 9,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/usa-river",
+              "streets": "/v1/wards/usa-river/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          },
+          {
+            "id": 26,
+            "name": "Uwiro",
+            "slug": "uwiro",
+            "postcode": "23321",
+            "street_count": 14,
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            },
+            "_links": {
+              "self": "/v1/wards/uwiro",
+              "streets": "/v1/wards/uwiro/streets",
+              "district": "/v1/districts/arumeru"
+            }
+          }
+        ],
+        "meta": {
+          "total": 26,
+          "district": "Arumeru"
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/districts/unknown",
+      "status": 404,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "District 'unknown' not found"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/districts/unknown/wards",
+      "status": 404,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "District 'unknown' not found"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/districts/INVALID",
+      "status": 400,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "BAD_REQUEST",
+          "message": "Invalid slug format"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/wards/buguruni",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": {
+          "id": 160,
+          "name": "Buguruni",
+          "slug": "buguruni",
+          "postcode": "12102",
+          "street_count": 4,
+          "district": {
+            "name": "Ilala",
+            "slug": "ilala"
+          },
+          "region": {
+            "name": "Dar Es Salaam",
+            "slug": "dar-es-salaam"
+          },
+          "_links": {
+            "self": "/v1/wards/buguruni",
+            "streets": "/v1/wards/buguruni/streets",
+            "district": "/v1/districts/ilala"
+          }
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/wards/maweni",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": {
+          "id": 3398,
+          "name": "Maweni",
+          "slug": "maweni",
+          "postcode": "43408",
+          "street_count": 17,
+          "district": {
+            "name": "Manyoni",
+            "slug": "manyoni"
+          },
+          "region": {
+            "name": "Singida",
+            "slug": "singida"
+          },
+          "_links": {
+            "self": "/v1/wards/maweni",
+            "streets": "/v1/wards/maweni/streets",
+            "district": "/v1/districts/manyoni"
+          }
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/wards/buguruni/streets",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": [
+          {
+            "id": 1869,
+            "name": "Kisiwani",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1869",
+              "ward": "/v1/wards/buguruni"
+            }
+          },
+          {
+            "id": 1870,
+            "name": "Madenge",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1870",
+              "ward": "/v1/wards/buguruni"
+            }
+          },
+          {
+            "id": 1871,
+            "name": "Malapa",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1871",
+              "ward": "/v1/wards/buguruni"
+            }
+          },
+          {
+            "id": 1872,
+            "name": "Mvinjeni",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1872",
+              "ward": "/v1/wards/buguruni"
+            }
+          }
+        ],
+        "meta": {
+          "total": 4,
+          "ward": "Buguruni",
+          "limit": 100,
+          "offset": 0
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/wards/buguruni/streets?limit=1&offset=1",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": [
+          {
+            "id": 1870,
+            "name": "Madenge",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1870",
+              "ward": "/v1/wards/buguruni"
+            }
+          }
+        ],
+        "meta": {
+          "total": 1,
+          "ward": "Buguruni",
+          "limit": 1,
+          "offset": 1
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/wards/buguruni/streets?limit=0&offset=-1",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": [
+          {
+            "id": 1869,
+            "name": "Kisiwani",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1869",
+              "ward": "/v1/wards/buguruni"
+            }
+          },
+          {
+            "id": 1870,
+            "name": "Madenge",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1870",
+              "ward": "/v1/wards/buguruni"
+            }
+          },
+          {
+            "id": 1871,
+            "name": "Malapa",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1871",
+              "ward": "/v1/wards/buguruni"
+            }
+          },
+          {
+            "id": 1872,
+            "name": "Mvinjeni",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1872",
+              "ward": "/v1/wards/buguruni"
+            }
+          }
+        ],
+        "meta": {
+          "total": 4,
+          "ward": "Buguruni",
+          "limit": 100,
+          "offset": 0
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/wards/buguruni/streets?limit=9999",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": [
+          {
+            "id": 1869,
+            "name": "Kisiwani",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1869",
+              "ward": "/v1/wards/buguruni"
+            }
+          },
+          {
+            "id": 1870,
+            "name": "Madenge",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1870",
+              "ward": "/v1/wards/buguruni"
+            }
+          },
+          {
+            "id": 1871,
+            "name": "Malapa",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1871",
+              "ward": "/v1/wards/buguruni"
+            }
+          },
+          {
+            "id": 1872,
+            "name": "Mvinjeni",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1872",
+              "ward": "/v1/wards/buguruni"
+            }
+          }
+        ],
+        "meta": {
+          "total": 4,
+          "ward": "Buguruni",
+          "limit": 500,
+          "offset": 0
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/wards/buguruni/streets?limit=-9",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": [
+          {
+            "id": 1869,
+            "name": "Kisiwani",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1869",
+              "ward": "/v1/wards/buguruni"
+            }
+          }
+        ],
+        "meta": {
+          "total": 1,
+          "ward": "Buguruni",
+          "limit": 1,
+          "offset": 0
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/wards/buguruni/streets?limit=garbage&offset=garbage",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": [
+          {
+            "id": 1869,
+            "name": "Kisiwani",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1869",
+              "ward": "/v1/wards/buguruni"
+            }
+          },
+          {
+            "id": 1870,
+            "name": "Madenge",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1870",
+              "ward": "/v1/wards/buguruni"
+            }
+          },
+          {
+            "id": 1871,
+            "name": "Malapa",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1871",
+              "ward": "/v1/wards/buguruni"
+            }
+          },
+          {
+            "id": 1872,
+            "name": "Mvinjeni",
+            "postcode": "12102",
+            "ward": {
+              "name": "Buguruni",
+              "slug": "buguruni",
+              "postcode": "12102"
+            },
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            },
+            "_links": {
+              "self": "/v1/streets/1872",
+              "ward": "/v1/wards/buguruni"
+            }
+          }
+        ],
+        "meta": {
+          "total": 4,
+          "ward": "Buguruni",
+          "limit": 100,
+          "offset": 0
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/wards/buguruni/streets?limit=0x2&offset=1e1",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": [],
+        "meta": {
+          "total": 0,
+          "ward": "Buguruni",
+          "limit": 2,
+          "offset": 10
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/wards/buguruni/streets?limit=2&offset=999999",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": [],
+        "meta": {
+          "total": 0,
+          "ward": "Buguruni",
+          "limit": 2,
+          "offset": 999999
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/wards/unknown",
+      "status": 404,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "Ward 'unknown' not found"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/wards/unknown/streets",
+      "status": 404,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "Ward 'unknown' not found"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/wards/INVALID",
+      "status": 400,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "BAD_REQUEST",
+          "message": "Invalid slug format"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/streets/1",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": {
+          "id": 1,
+          "name": "Akheri",
+          "postcode": "23306",
+          "ward": {
+            "name": "Akheri",
+            "slug": "akheri",
+            "postcode": "23306"
+          },
+          "district": {
+            "name": "Arumeru",
+            "slug": "arumeru"
+          },
+          "region": {
+            "name": "Arusha",
+            "slug": "arusha"
+          },
+          "_links": {
+            "self": "/v1/streets/1",
+            "ward": "/v1/wards/akheri"
+          }
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/streets/75061",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": {
+          "id": 75061,
+          "name": "Paje",
+          "postcode": "72110",
+          "ward": {
+            "name": "Paje",
+            "slug": "paje",
+            "postcode": "72110"
+          },
+          "district": {
+            "name": "Kusini",
+            "slug": "kusini"
+          },
+          "region": {
+            "name": "Unguja South",
+            "slug": "unguja-south"
+          },
+          "_links": {
+            "self": "/v1/streets/75061",
+            "ward": "/v1/wards/paje"
+          }
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/streets/0",
+      "status": 404,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "Invalid street ID"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/streets/abc",
+      "status": 404,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "Invalid street ID"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/streets/1.5",
+      "status": 404,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "Invalid street ID"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/streets/999999",
+      "status": 404,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "Street with ID 999999 not found"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/streets/1e0",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": {
+          "id": 1,
+          "name": "Akheri",
+          "postcode": "23306",
+          "ward": {
+            "name": "Akheri",
+            "slug": "akheri",
+            "postcode": "23306"
+          },
+          "district": {
+            "name": "Arumeru",
+            "slug": "arumeru"
+          },
+          "region": {
+            "name": "Arusha",
+            "slug": "arusha"
+          },
+          "_links": {
+            "self": "/v1/streets/1",
+            "ward": "/v1/wards/akheri"
+          }
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/streets/0x1",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": {
+          "id": 1,
+          "name": "Akheri",
+          "postcode": "23306",
+          "ward": {
+            "name": "Akheri",
+            "slug": "akheri",
+            "postcode": "23306"
+          },
+          "district": {
+            "name": "Arumeru",
+            "slug": "arumeru"
+          },
+          "region": {
+            "name": "Arusha",
+            "slug": "arusha"
+          },
+          "_links": {
+            "self": "/v1/streets/1",
+            "ward": "/v1/wards/akheri"
+          }
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/postcodes/12102",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": {
+          "postcode": "12102",
+          "ward": {
+            "id": 160,
+            "name": "Buguruni",
+            "slug": "buguruni",
+            "district": {
+              "name": "Ilala",
+              "slug": "ilala"
+            },
+            "region": {
+              "name": "Dar Es Salaam",
+              "slug": "dar-es-salaam"
+            }
+          },
+          "streets": [
+            {
+              "id": 1869,
+              "name": "Kisiwani",
+              "ward": {
+                "name": "Buguruni",
+                "slug": "buguruni"
+              }
+            },
+            {
+              "id": 1870,
+              "name": "Madenge",
+              "ward": {
+                "name": "Buguruni",
+                "slug": "buguruni"
+              }
+            },
+            {
+              "id": 1871,
+              "name": "Malapa",
+              "ward": {
+                "name": "Buguruni",
+                "slug": "buguruni"
+              }
+            },
+            {
+              "id": 1872,
+              "name": "Mvinjeni",
+              "ward": {
+                "name": "Buguruni",
+                "slug": "buguruni"
+              }
+            }
+          ]
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/postcodes/23306",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": {
+          "postcode": "23306",
+          "ward": {
+            "id": 1,
+            "name": "Akheri",
+            "slug": "akheri",
+            "district": {
+              "name": "Arumeru",
+              "slug": "arumeru"
+            },
+            "region": {
+              "name": "Arusha",
+              "slug": "arusha"
+            }
+          },
+          "streets": [
+            {
+              "id": 1,
+              "name": "Akheri",
+              "ward": {
+                "name": "Akheri",
+                "slug": "akheri"
+              }
+            },
+            {
+              "id": 2,
+              "name": "Duluti",
+              "ward": {
+                "name": "Akheri",
+                "slug": "akheri"
+              }
+            },
+            {
+              "id": 3,
+              "name": "Ifuriny",
+              "ward": {
+                "name": "Akheri",
+                "slug": "akheri"
+              }
+            },
+            {
+              "id": 4,
+              "name": "Maksoru",
+              "ward": {
+                "name": "Akheri",
+                "slug": "akheri"
+              }
+            },
+            {
+              "id": 5,
+              "name": "Manyire",
+              "ward": {
+                "name": "Akheri",
+                "slug": "akheri"
+              }
+            },
+            {
+              "id": 6,
+              "name": "Maringa",
+              "ward": {
+                "name": "Akheri",
+                "slug": "akheri"
+              }
+            },
+            {
+              "id": 7,
+              "name": "Mavinuni",
+              "ward": {
+                "name": "Akheri",
+                "slug": "akheri"
+              }
+            },
+            {
+              "id": 8,
+              "name": "Muraiweni",
+              "ward": {
+                "name": "Akheri",
+                "slug": "akheri"
+              }
+            },
+            {
+              "id": 9,
+              "name": "Nguruma",
+              "ward": {
+                "name": "Akheri",
+                "slug": "akheri"
+              }
+            },
+            {
+              "id": 10,
+              "name": "Nguruma Kati",
+              "ward": {
+                "name": "Akheri",
+                "slug": "akheri"
+              }
+            },
+            {
+              "id": 11,
+              "name": "Nkoamalay",
+              "ward": {
+                "name": "Akheri",
+                "slug": "akheri"
+              }
+            },
+            {
+              "id": 12,
+              "name": "Patandi",
+              "ward": {
+                "name": "Akheri",
+                "slug": "akheri"
+              }
+            },
+            {
+              "id": 13,
+              "name": "Tengeru",
+              "ward": {
+                "name": "Akheri",
+                "slug": "akheri"
+              }
+            }
+          ]
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/postcodes/99999",
+      "status": 404,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "No locations found for postcode 99999"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/postcodes/abc",
+      "status": 400,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "BAD_REQUEST",
+          "message": "Postcode must be a 5-digit number"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/postcodes/1234",
+      "status": 400,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "BAD_REQUEST",
+          "message": "Postcode must be a 5-digit number"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/search",
+      "status": 400,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "BAD_REQUEST",
+          "message": "Query parameter 'q' is required"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/search?q=a&type=invalid",
+      "status": 400,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "BAD_REQUEST",
+          "message": "Invalid type. Must be one of: region, district, ward, street"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/search?q=%27%3B--",
+      "status": 400,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "BAD_REQUEST",
+          "message": "Query must contain at least one alphanumeric character"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/search?q=arusha&type=region",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": [
+          {
+            "name": "Arusha",
+            "type": "region",
+            "postcode": null,
+            "full_path": "Arusha",
+            "entity_id": 1
+          }
+        ],
+        "meta": {
+          "total": 1,
+          "query": "arusha"
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/search?q=buguruni&type=ward",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": [
+          {
+            "name": "Buguruni",
+            "type": "ward",
+            "postcode": "12102",
+            "full_path": "Buguruni, Ilala, Dar Es Salaam",
+            "entity_id": 160
+          }
+        ],
+        "meta": {
+          "total": 1,
+          "query": "buguruni"
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/search?q=nonexistentzzzz",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": [],
+        "meta": {
+          "total": 0,
+          "query": "nonexistentzzzz"
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/search?q=buguruni&type=ward&limit=0",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": [
+          {
+            "name": "Buguruni",
+            "type": "ward",
+            "postcode": "12102",
+            "full_path": "Buguruni, Ilala, Dar Es Salaam",
+            "entity_id": 160
+          }
+        ],
+        "meta": {
+          "total": 1,
+          "query": "buguruni"
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/search?q=buguruni&type=ward&limit=-1",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": [
+          {
+            "name": "Buguruni",
+            "type": "ward",
+            "postcode": "12102",
+            "full_path": "Buguruni, Ilala, Dar Es Salaam",
+            "entity_id": 160
+          }
+        ],
+        "meta": {
+          "total": 1,
+          "query": "buguruni"
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/autocomplete",
+      "status": 400,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "BAD_REQUEST",
+          "message": "Query parameter 'q' is required (min 2 characters)"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/autocomplete?q=a",
+      "status": 400,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "BAD_REQUEST",
+          "message": "Query parameter 'q' is required (min 2 characters)"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/autocomplete?q=--",
+      "status": 400,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "BAD_REQUEST",
+          "message": "Query must contain at least one alphanumeric character"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/autocomplete?q=nonexistentzzzz",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": []
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/stats",
+      "status": 200,
+      "comparison": "exact",
+      "body": {
+        "data": {
+          "regions": 31,
+          "districts": 168,
+          "wards": 4054,
+          "streets": 75061
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/unknown",
+      "status": 404,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "Endpoint not found"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/regions/",
+      "status": 404,
+      "comparison": "exact",
+      "body": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "Endpoint not found"
+        }
+      },
+      "cache_control": null
+    },
+    {
+      "path": "/v1/search?q=buguruni",
+      "status": 200,
+      "comparison": "search",
+      "body": {
+        "data": [
+          {
+            "name": "Buguruni",
+            "type": "ward",
+            "postcode": "12102",
+            "full_path": "Buguruni, Ilala, Dar Es Salaam",
+            "entity_id": 160
+          }
+        ],
+        "meta": {
+          "total": 1,
+          "query": "buguruni"
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/search?q=malapa&type=street",
+      "status": 200,
+      "comparison": "search",
+      "body": {
+        "data": [],
+        "meta": {
+          "total": 0,
+          "query": "malapa"
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/search?q=dar%20es%20salaam",
+      "status": 200,
+      "comparison": "search",
+      "body": {
+        "data": [
+          {
+            "name": "Dar Es Salaam",
+            "type": "region",
+            "postcode": null,
+            "full_path": "Dar Es Salaam",
+            "entity_id": 2
+          },
+          {
+            "name": "Ilala",
+            "type": "district",
+            "postcode": null,
+            "full_path": "Ilala, Dar Es Salaam",
+            "entity_id": 8
+          },
+          {
+            "name": "Kigamboni",
+            "type": "district",
+            "postcode": null,
+            "full_path": "Kigamboni, Dar Es Salaam",
+            "entity_id": 10
+          },
+          {
+            "name": "Kinondoni",
+            "type": "district",
+            "postcode": null,
+            "full_path": "Kinondoni, Dar Es Salaam",
+            "entity_id": 11
+          },
+          {
+            "name": "Temeke",
+            "type": "district",
+            "postcode": null,
+            "full_path": "Temeke, Dar Es Salaam",
+            "entity_id": 12
+          },
+          {
+            "name": "Ubungo",
+            "type": "district",
+            "postcode": null,
+            "full_path": "Ubungo, Dar Es Salaam",
+            "entity_id": 13
+          },
+          {
+            "name": "Ilala CBD",
+            "type": "district",
+            "postcode": null,
+            "full_path": "Ilala CBD, Dar Es Salaam",
+            "entity_id": 9
+          },
+          {
+            "name": "Bonyokwa",
+            "type": "ward",
+            "postcode": "12120",
+            "full_path": "Bonyokwa, Ilala, Dar Es Salaam",
+            "entity_id": 159
+          },
+          {
+            "name": "Buguruni",
+            "type": "ward",
+            "postcode": "12102",
+            "full_path": "Buguruni, Ilala, Dar Es Salaam",
+            "entity_id": 160
+          },
+          {
+            "name": "Buyuni",
+            "type": "ward",
+            "postcode": "12124",
+            "full_path": "Buyuni, Ilala, Dar Es Salaam",
+            "entity_id": 161
+          }
+        ],
+        "meta": {
+          "total": 10,
+          "query": "dar es salaam"
+        }
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/autocomplete?q=bug",
+      "status": 200,
+      "comparison": "search",
+      "body": {
+        "data": [
+          {
+            "name": "Buger",
+            "type": "ward",
+            "postcode": "23606",
+            "full_path": "Buger, Karatu, Arusha"
+          },
+          {
+            "name": "Bugelenga",
+            "type": "ward",
+            "postcode": "30504",
+            "full_path": "Bugelenga, Bukombe, Geita"
+          },
+          {
+            "name": "Bugalama",
+            "type": "ward",
+            "postcode": "30130",
+            "full_path": "Bugalama, Geita, Geita"
+          },
+          {
+            "name": "Bugulula",
+            "type": "ward",
+            "postcode": "30132",
+            "full_path": "Bugulula, Geita, Geita"
+          },
+          {
+            "name": "Bugene",
+            "type": "ward",
+            "postcode": "35404",
+            "full_path": "Bugene, Karagwe, Kagera"
+          }
+        ]
+      },
+      "cache_control": "public, max-age=86400"
+    },
+    {
+      "path": "/v1/autocomplete?q=arusha",
+      "status": 200,
+      "comparison": "search",
+      "body": {
+        "data": [
+          {
+            "name": "Arusha",
+            "type": "district",
+            "postcode": null,
+            "full_path": "Arusha, Arusha"
+          },
+          {
+            "name": "Arusha CBD",
+            "type": "district",
+            "postcode": null,
+            "full_path": "Arusha CBD, Arusha"
+          },
+          {
+            "name": "Arusha",
+            "type": "region",
+            "postcode": null,
+            "full_path": "Arusha"
+          },
+          {
+            "name": "Bangata",
+            "type": "ward",
+            "postcode": "23207",
+            "full_path": "Bangata, Arusha, Arusha"
+          },
+          {
+            "name": "Bwawani",
+            "type": "ward",
+            "postcode": "23220",
+            "full_path": "Bwawani, Arusha, Arusha"
+          }
+        ]
+      },
+      "cache_control": "public, max-age=86400"
+    }
+  ]
+}
