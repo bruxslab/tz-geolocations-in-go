@@ -1,0 +1,90 @@
+name: Publish and deploy API
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: unctom-tz-geolocations-deploy
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_branch == 'main' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      image: ${{ steps.image.outputs.image }}
+      revision: ${{ github.event.workflow_run.head_sha }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+      - uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8
+        id: build
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          platforms: linux/amd64
+          tags: ghcr.io/bruxslab/tz-geolocations-in-go:sha-${{ github.event.workflow_run.head_sha }}
+      - name: Record immutable deployment image
+        id: image
+        env:
+          DIGEST: ${{ steps.build.outputs.digest }}
+        run: |
+          [[ "$DIGEST" =~ ^sha256:[a-f0-9]{64}$ ]]
+          echo "image=ghcr.io/bruxslab/tz-geolocations-in-go@$DIGEST" >> "$GITHUB_OUTPUT"
+          echo "Image: ghcr.io/bruxslab/tz-geolocations-in-go@$DIGEST" >> "$GITHUB_STEP_SUMMARY"
+  deploy:
+    needs: publish
+    if: vars.DEPLOY_ENABLED == 'true'
+    environment: api-test
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ needs.publish.outputs.revision }}
+          persist-credentials: false
+      - name: Install dedicated deployment credentials
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          umask 077
+          mkdir -p "$RUNNER_TEMP/deploy-ssh"
+          printf '%s\n' "$DEPLOY_KEY" > "$RUNNER_TEMP/deploy-ssh/key"
+          printf '%s\n' "$KNOWN_HOSTS" > "$RUNNER_TEMP/deploy-ssh/known_hosts"
+          ssh-keygen -F 207.180.225.174 -f "$RUNNER_TEMP/deploy-ssh/known_hosts" >/dev/null
+      - name: Transfer release and deploy as unctom
+        env:
+          REVISION: ${{ needs.publish.outputs.revision }}
+          API_IMAGE: ${{ needs.publish.outputs.image }}
+        run: |
+          set -euo pipefail
+          [[ "$REVISION" =~ ^[a-f0-9]{40}$ ]]
+          [[ "$API_IMAGE" =~ ^ghcr\.io/bruxslab/tz-geolocations-in-go@sha256:[a-f0-9]{64}$ ]]
+          options=(-i "$RUNNER_TEMP/deploy-ssh/key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/deploy-ssh/known_hosts" -o ConnectTimeout=15 -o ServerAliveInterval=30 -o ServerAliveCountMax=3)
+          target=unctom@207.180.225.174
+          release=/srv/apps/unctom/tz-geolocations/releases/$REVISION
+          tar -cf - deploy migrations |
+            ssh "${options[@]}" "$target" "umask 077; mkdir -p '$release' && tar -xf - -C '$release'"
+          ssh "${options[@]}" "$target" "bash '$release/deploy/server.sh' deploy '$API_IMAGE' '$REVISION'"
+      - name: Remove temporary credentials
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/deploy-ssh"
