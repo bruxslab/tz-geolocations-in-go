@@ -107,12 +107,14 @@ GET /v1/search?q=ibadakuli&type=street&region_slug=shinyanga&limit=10
 
 Matching includes parent ward/district names, so `ibadakuli` can return **Airport** in Ibadakuli ward, as well as streets named Ibadakuli. Region filtering uses the actual parent relationship, not text in `full_path`. Both endpoints retain their existing response shapes; omit `region_slug` to search nationwide. A valid but unknown region returns an empty list; a supplied empty or malformed slug returns `BAD_REQUEST`. Autocomplete now supports the same optional `type` values as search.
 
-Display suggestions with the postcode first, using the two existing fields:
+The `full_path` string returned by both search endpoints already includes the postcode first whenever one is available:
 
 ```js
-const label = [result.postcode, result.full_path].filter(Boolean).join(", ");
+const label = result.full_path;
 // "37113, Airport, Ibadakuli, Shinyanga CBD, Shinyanga"
 ```
+
+The separate `postcode` field is retained for structured storage; do not prepend it again. Region/district results without a postcode retain their original paths. This postcode-first presentation intentionally differs from the pinned reference API; database search documents and ranking are unchanged.
 
 Store the selected postcode/path (and street ID when using search) alongside the selected region. Clear the address selection when the region changes. Debounce typing requests and cancel or ignore stale responses so an old region/query cannot overwrite current suggestions. The API supports Tanzania only; no country query parameter is needed. This repository provides the API, not a checkout frontend.
 

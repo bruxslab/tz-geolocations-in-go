@@ -403,6 +403,11 @@ func (a *API) find(r *http.Request, prefix bool) (response, error) {
 	if err != nil {
 		return response{}, err
 	}
+	for i := range rows {
+		if rows[i].Postcode != nil && *rows[i].Postcode != "" {
+			rows[i].FullPath = *rows[i].Postcode + ", " + rows[i].FullPath
+		}
+	}
 	if prefix {
 		out := make([]object, 0, len(rows))
 		for _, v := range rows {

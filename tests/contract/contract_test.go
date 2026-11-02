@@ -5,6 +5,7 @@ import (
 	"net/http/httptest"
 	"os"
 	"reflect"
+	"strings"
 	"testing"
 
 	"github.com/bruxslab/tz-geolocations-in-go/data"
@@ -79,8 +80,22 @@ func TestReferenceAPI(t *testing.T) {
 				t.Fatal(err)
 			}
 			observed = append(observed, map[string]any{"path": tc.Path, "status": rr.Code, "body": got})
-			if tc.Comparison == "exact" && !reflect.DeepEqual(got, tc.Body) {
-				t.Fatalf("contract differs\ngot: %s\nwant: %s", rr.Body.String(), mustJSON(tc.Body))
+			expected := tc.Body
+			if strings.HasPrefix(tc.Path, "/v1/search") || strings.HasPrefix(tc.Path, "/v1/autocomplete") {
+				// Explicitly approved presentation change; preserve the original
+				// source fixture and compare everything else without modification.
+				expected = canonical(t, tc.Body)
+				if rows, ok := expected.(map[string]any)["data"].([]any); ok {
+					for _, raw := range rows {
+						row := raw.(map[string]any)
+						if pc, ok := row["postcode"].(string); ok && pc != "" {
+							row["full_path"] = pc + ", " + row["full_path"].(string)
+						}
+					}
+				}
+			}
+			if tc.Comparison == "exact" && !reflect.DeepEqual(got, expected) {
+				t.Fatalf("contract differs\ngot: %s\nwant: %s", rr.Body.String(), mustJSON(expected))
 			}
 			if tc.Comparison == "search" {
 				checkSearch(t, got, tc.Body)

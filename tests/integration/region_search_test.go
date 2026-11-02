@@ -100,8 +100,11 @@ func TestRegionScopedSearch(t *testing.T) {
 				t.Fatal("empty address suggestions")
 			}
 			for _, r := range body.Data {
-				if r.Type != "street" || !strings.HasSuffix(r.FullPath, ", Shinyanga") || len(r.Postcode) != 5 {
+				if r.Type != "street" || !strings.HasSuffix(r.FullPath, ", Shinyanga") || len(r.Postcode) != 5 || !strings.HasPrefix(r.FullPath, r.Postcode+", ") {
 					t.Fatal("invalid checkout suggestion", r)
+				}
+				if r.Name == "Airport" && r.FullPath != "37113, Airport, Ibadakuli, Shinyanga CBD, Shinyanga" {
+					t.Fatal("unexpected postcode-first path", r)
 				}
 			}
 		}

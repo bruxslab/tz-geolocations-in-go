@@ -1894,7 +1894,8 @@
             ]
           },
           "full_path": {
-            "type": "string"
+            "type": "string",
+            "description": "Display-ready administrative path with postcode first when available, e.g. 37113, Airport, Ibadakuli, Shinyanga CBD, Shinyanga. Results without a postcode omit the prefix."
           },
           "entity_id": {
             "type": "integer",
@@ -1931,7 +1932,8 @@
             ]
           },
           "full_path": {
-            "type": "string"
+            "type": "string",
+            "description": "Display-ready administrative path with postcode first when available, e.g. 37113, Airport, Ibadakuli, Shinyanga CBD, Shinyanga. Results without a postcode omit the prefix."
           }
         },
         "required": [

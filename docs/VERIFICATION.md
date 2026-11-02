@@ -39,3 +39,9 @@ Verified on 2026-11-02 after adding migration 0002, optional `region_slug` on se
 - Five new live checkout cases and all 60 legacy live API contracts passed. The Airport result produces exactly `37113, Airport, Ibadakuli, Shinyanga CBD, Shinyanga` when the existing postcode and full_path fields are joined.
 - PostgreSQL EXPLAIN ANALYZE confirmed a BitmapAnd combining `search_document_gin` with `search_region_type_idx` for Shinyanga/Ibadakuli street search.
 - The updated API image is running on the existing port 8085. No checkout UI, remote push, or deployment was added.
+
+## Postcode-first response correction
+
+Search and autocomplete now return the postcode prefix directly inside `full_path`, as requested, while retaining the separate `postcode` field. Regions/districts without postcodes keep their original paths. This explicitly approved presentation change is applied after querying, so it changes neither ranking nor stored search data. Original source fixtures are retained; contract comparisons apply only the approved prefix to expected search/suggestion paths.
+
+PostgreSQL integration and source contract suites, vet, formatting, and OpenAPI validation passed after the correction. Regression checks cover the exact Airport path and postcode prefixes on street autocomplete/search results, while source comparisons cover ward postcodes and unchanged region paths. The corrected image was rebuilt for local port 8085.
