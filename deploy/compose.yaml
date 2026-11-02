@@ -1,0 +1,73 @@
+name: unctom_tz_geolocations
+x-app: &app
+  image: ${API_IMAGE:?Set the exact API image digest}
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  mem_limit: 256m
+  cpus: 0.05
+  pids_limit: 128
+  networks: [backend]
+  logging: {driver: json-file, options: {max-size: 10m, max-file: '3'}}
+x-owner-env: &owner-env
+  MIGRATION_DATABASE_URL: postgres://tz_owner:${TZ_OWNER_PASSWORD:?Set TZ_OWNER_PASSWORD}@postgres:5432/tz_locations?sslmode=disable
+  RUNTIME_DATABASE_ROLE: tz_reader
+services:
+  postgres:
+    image: postgres:18-bookworm
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+      POSTGRES_DB: postgres
+      TZ_OWNER_PASSWORD: ${TZ_OWNER_PASSWORD:?Set TZ_OWNER_PASSWORD}
+      TZ_RUNTIME_PASSWORD: ${TZ_RUNTIME_PASSWORD:?Set TZ_RUNTIME_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql
+      - ./init-db.sh:/docker-entrypoint-initdb.d/10-tz-locations.sh:ro
+    networks: [backend]
+    mem_limit: 512m
+    cpus: 0.10
+    pids_limit: 128
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U postgres -d tz_locations]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+    logging: {driver: json-file, options: {max-size: 10m, max-file: '3'}}
+  migrate:
+    <<: *app
+    entrypoint: [/migrate]
+    profiles: [tools]
+    environment: *owner-env
+  import:
+    <<: *app
+    entrypoint: [/import]
+    profiles: [tools]
+    environment: *owner-env
+  api:
+    <<: *app
+    environment:
+      HTTP_HOST: 0.0.0.0
+      HTTP_PORT: '8080'
+      DATABASE_URL: postgres://tz_reader:${TZ_RUNTIME_PASSWORD:?Set TZ_RUNTIME_PASSWORD}@postgres:5432/tz_locations?sslmode=disable
+      DATABASE_MAX_CONNS: '5'
+      DATABASE_MIN_CONNS: '1'
+      RATE_LIMIT_REQUESTS: '100'
+      RATE_LIMIT_WINDOW_SECONDS: '60'
+      CORS_ORIGINS: ${CORS_ORIGINS:-*}
+    healthcheck:
+      test: [CMD, /healthcheck]
+      interval: 15s
+      timeout: 6s
+      start_period: 20s
+      retries: 5
+    ports: ['127.0.0.1:18080:8080']
+    restart: unless-stopped
+networks:
+  backend:
+    name: unctom_tz_geolocations_backend
+    internal: true
+volumes:
+  postgres_data:
+    name: unctom_tz_geolocations_postgres_data
