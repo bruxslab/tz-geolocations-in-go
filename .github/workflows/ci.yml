@@ -31,8 +31,9 @@ jobs:
       TEST_DATABASE_URL: postgres://tz_owner:ci-test-only@127.0.0.1:5432/tz_locations_test?sslmode=disable
       REQUIRE_DATABASE_TESTS: "1"
       CGO_ENABLED: "1"
-      CONTRACT_RESULTS_PATH: ${{ runner.temp }}/tz-go-contracts.json
     steps:
+      - name: Set contract results path
+        run: printf 'CONTRACT_RESULTS_PATH=%s/tz-go-contracts.json\n' "$RUNNER_TEMP" >> "$GITHUB_ENV"
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
