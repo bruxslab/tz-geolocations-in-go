@@ -43,6 +43,10 @@ Reviewed all eight route modules, root routing, both response/validation helpers
 
 ## Delivery boundaries
 
+### Additive checkout search capability
+
+Search and autocomplete support optional `region_slug`, and autocomplete supports optional `type`. Region filtering follows each entity's actual containing region and is applied before LIMIT; parent-name matching still includes streets under matching wards. Existing response bodies, postcode/full_path fields, and nationwide behavior without a filter are preserved. Empty/malformed supplied slugs and invalid autocomplete types return BAD_REQUEST; unknown valid regions return empty arrays. Migration 0002 backfills existing search documents without changing source IDs or requiring reimport. The checkout presentation combines the existing fields as `postcode, full_path`; no API path strings are rewritten.
+
 Docker Compose for the Go app and dedicated PostgreSQL explicitly supersedes the original Lerd database requirement and application-container exclusion. No existing Lerd service, database, or global setting is changed. Local commits only; remote CI execution and deployment are outside this delivery.
 
 ## Verification record — 2026-11-02

@@ -1106,6 +1106,16 @@
               "default": "10"
             },
             "description": "JavaScript-compatible numeric value, default 10, clamped to 1..50. Zero or unparseable values use the default. Fractions produce legacy INTERNAL_ERROR."
+          },
+          {
+            "name": "region_slug",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9-]{1,100}$"
+            },
+            "description": "Restrict matches to the containing region, including names matched through ward/district paths. Unknown valid slugs return an empty array; an empty or malformed supplied slug returns BAD_REQUEST."
           }
         ],
         "responses": {
@@ -1197,7 +1207,7 @@
     "/v1/autocomplete": {
       "get": {
         "operationId": "autocomplete",
-        "summary": "Phrase-prefix autocomplete; q requires at least two UTF-16 code units",
+        "summary": "Phrase-prefix autocomplete, optionally filtered by region and entity type; q requires at least two UTF-16 code units",
         "parameters": [
           {
             "name": "q",
@@ -1217,6 +1227,31 @@
               "default": "5"
             },
             "description": "JavaScript-compatible numeric value, default 5, clamped to 1..20. Zero or unparseable values use the default. Fractions produce legacy INTERNAL_ERROR."
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "region",
+                "district",
+                "ward",
+                "street"
+              ]
+            },
+            "description": ""
+          },
+          {
+            "name": "region_slug",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9-]{1,100}$"
+            },
+            "description": "Restrict matches to the containing region, including names matched through ward/district paths. Unknown valid slugs return an empty array; an empty or malformed supplied slug returns BAD_REQUEST."
           }
         ],
         "responses": {

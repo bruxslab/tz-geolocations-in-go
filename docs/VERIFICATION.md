@@ -28,3 +28,14 @@ The API is available locally at `http://127.0.0.1:8085`; `.env` selects this hos
 Initial environment issues were resolved without changing Lerd: Docker required refreshed group membership; the installed Docker credential helper could not decrypt saved credentials, so public images were fetched with an isolated empty client configuration in `/tmp/tz-docker-config`. The host has no gcc, so race tests ran in the compiler-equipped Docker test image. Normal host tests, static analysis and data validation also passed.
 
 The retained search differences, deterministic ambiguous-slug policy, additional parent filters, and source limitations are documented in FEATURE_PARITY.md and DATA_PROVENANCE.md. No claim is made that PostgreSQL ranking is identical to SQLite FTS5 porter or that this pinned postal snapshot reflects today's official boundaries.
+
+## Region-scoped checkout search
+
+Verified on 2026-11-02 after adding migration 0002, optional `region_slug` on search/autocomplete, and optional `type` on autocomplete:
+
+- Full Go/PostgreSQL suites and source contracts passed. The Docker suite also passed race detection, vet, formatting and data checks; migration timeout changes received an additional database/integration test and vet run.
+- Tests validate containing-region mappings for every search document and exercise all four entity types, parent-ward street matches, repeated street names, partial prefix input, malformed/empty filters, and unknown regions.
+- Existing populated application and test databases migrated successfully without reimporting the dataset or changing its fingerprint. Backfills use a two-minute statement budget rather than the HTTP read budget; the migration command has a five-minute overall deadline.
+- Five new live checkout cases and all 60 legacy live API contracts passed. The Airport result produces exactly `37113, Airport, Ibadakuli, Shinyanga CBD, Shinyanga` when the existing postcode and full_path fields are joined.
+- PostgreSQL EXPLAIN ANALYZE confirmed a BitmapAnd combining `search_document_gin` with `search_region_type_idx` for Shinyanga/Ibadakuli street search.
+- The updated API image is running on the existing port 8085. No checkout UI, remote push, or deployment was added.

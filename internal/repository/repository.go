@@ -113,13 +113,21 @@ func (r *Repository) Stats(ctx context.Context) (data.Stats, error) {
 	err := r.Pool.QueryRow(ctx, `SELECT (SELECT count(*) FROM locations.regions),(SELECT count(*) FROM locations.districts),(SELECT count(*) FROM locations.wards),(SELECT count(*) FROM locations.streets)`).Scan(&v.Regions, &v.Districts, &v.Wards, &v.Streets)
 	return v, err
 }
-func (r *Repository) Search(ctx context.Context, query, kind string, limit int, prefix bool) ([]models.SearchResult, error) {
+func (r *Repository) Search(ctx context.Context, query, kind, region string, limit int, prefix bool) ([]models.SearchResult, error) {
 	fn := "phraseto_tsquery"
 	if prefix {
 		fn = "to_tsquery"
 	}
 	// fn is selected internally, never interpolated from request input.
-	rows, err := r.Pool.Query(ctx, `WITH q AS (SELECT `+fn+`('simple',$1) AS query) SELECT name,type,postcode,full_path,entity_id FROM locations.search_documents,q WHERE document @@ q.query AND ($2='' OR type=$2) ORDER BY ts_rank_cd(document,q.query) DESC,name,type,entity_id LIMIT $3`, query, kind, limit)
+	sql := `WITH q AS (SELECT ` + fn + `('simple',$1) AS query) SELECT name,type,postcode,full_path,entity_id FROM locations.search_documents,q WHERE document @@ q.query AND ($2='' OR type=$2)`
+	args := []any{query, kind, limit}
+	if region != "" {
+		// Use relational identity, never text matching against the display path.
+		sql += ` AND region_scope_id=(SELECT id FROM locations.regions WHERE slug=$4)`
+		args = append(args, region)
+	}
+	sql += ` ORDER BY ts_rank_cd(document,q.query) DESC,name,type,entity_id LIMIT $3`
+	rows, err := r.Pool.Query(ctx, sql, args...)
 	if err != nil {
 		return nil, err
 	}

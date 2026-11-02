@@ -86,6 +86,12 @@ func Migrate(ctx context.Context, pool *pgxpool.Pool) error {
 		if err != nil {
 			return err
 		}
+		// Data backfills may take longer than request-time reads; keep them
+		// bounded independently while retaining the caller's overall deadline.
+		if _, err = tx.Exec(ctx, "SET LOCAL statement_timeout = '120s'"); err != nil {
+			_ = tx.Rollback(context.Background())
+			return err
+		}
 		if _, err = tx.Exec(ctx, string(b)); err == nil {
 			_, err = tx.Exec(ctx, "INSERT INTO public.tz_locations_migrations(version,checksum) VALUES($1,$2)", name, checksum)
 		}

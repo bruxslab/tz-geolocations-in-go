@@ -111,7 +111,7 @@ func TestPostgreSQL(t *testing.T) {
 	})
 	t.Run("search all levels and safe input", func(t *testing.T) {
 		for kind, query := range map[string]string{"region": "arusha", "district": "arumeru", "ward": "akheri", "street": "malapa"} {
-			rows, err := repo.Search(ctx, query, kind, 50, false)
+			rows, err := repo.Search(ctx, query, kind, "", 50, false)
 			if err != nil || len(rows) == 0 {
 				t.Fatal(kind, rows, err)
 			}
@@ -125,15 +125,15 @@ func TestPostgreSQL(t *testing.T) {
 		if status != 200 || len(body["data"].([]any)) == 0 {
 			t.Fatal(body)
 		}
-		first, e := repo.Search(ctx, "arusha", "ward", 50, false)
+		first, e := repo.Search(ctx, "arusha", "ward", "", 50, false)
 		if e != nil || len(first) == 0 {
 			t.Fatal("path search", e)
 		}
-		second, e := repo.Search(ctx, "arusha", "ward", 50, false)
+		second, e := repo.Search(ctx, "arusha", "ward", "", 50, false)
 		if e != nil || !reflect.DeepEqual(first, second) {
 			t.Fatal("nondeterministic search", e)
 		}
-		pc, e := repo.Search(ctx, "12102", "ward", 10, false)
+		pc, e := repo.Search(ctx, "12102", "ward", "", 10, false)
 		if e != nil || len(pc) == 0 {
 			t.Fatal("postcode search", e)
 		}

@@ -370,7 +370,6 @@ func (a *API) find(r *http.Request, prefix bool) (response, error) {
 	def, maxLimit, minChars := 10, 50, 1
 	if prefix {
 		def, maxLimit, minChars = 5, 20, 2
-		kind = ""
 	}
 	if search.UTF16Length(q) < minChars {
 		msg := "Query parameter 'q' is required"
@@ -379,8 +378,12 @@ func (a *API) find(r *http.Request, prefix bool) (response, error) {
 		}
 		return response{}, bad(msg)
 	}
-	if !prefix && kind != "" && kind != "region" && kind != "district" && kind != "ward" && kind != "street" {
+	if kind != "" && kind != "region" && kind != "district" && kind != "ward" && kind != "street" {
 		return response{}, bad("Invalid type. Must be one of: region, district, ward, street")
+	}
+	region := r.URL.Query().Get("region_slug")
+	if r.URL.Query().Has("region_slug") && !service.SlugPattern.MatchString(region) {
+		return response{}, bad("Invalid region_slug format")
 	}
 	if len(q) > 4096 {
 		return response{}, bad("Query is too long (maximum 4096 bytes)")
@@ -396,7 +399,7 @@ func (a *API) find(r *http.Request, prefix bool) (response, error) {
 	if prefix {
 		sanitized = search.Prefix(sanitized)
 	}
-	rows, err := a.repo.Search(r.Context(), sanitized, kind, limit, prefix)
+	rows, err := a.repo.Search(r.Context(), sanitized, kind, region, limit, prefix)
 	if err != nil {
 		return response{}, err
 	}

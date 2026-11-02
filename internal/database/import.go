@@ -101,11 +101,11 @@ func Import(ctx context.Context, pool *pgxpool.Pool, d *data.Dataset, source str
 			return fmt.Errorf("copy %s: expected %d rows, got %d", c.table, c.count, n)
 		}
 	}
-	if _, err = tx.Exec(ctx, `INSERT INTO locations.search_documents(type,entity_id,region_id,district_id,ward_id,street_id,name,postcode,full_path)
- SELECT 'region',r.id,r.id,NULL::integer,NULL::integer,NULL::integer,r.name,NULL::text,r.name FROM locations.regions r
- UNION ALL SELECT 'district',d.id,NULL,d.id,NULL,NULL,d.name,NULL,d.name||', '||r.name FROM locations.districts d JOIN locations.regions r ON r.id=d.region_id
- UNION ALL SELECT 'ward',w.id,NULL,NULL,w.id,NULL,w.name,w.postcode,w.name||', '||d.name||', '||r.name FROM locations.wards w JOIN locations.districts d ON d.id=w.district_id JOIN locations.regions r ON r.id=d.region_id
- UNION ALL SELECT 'street',s.id,NULL,NULL,NULL,s.id,s.name,s.postcode,s.name||', '||w.name||', '||d.name||', '||r.name FROM locations.streets s JOIN locations.wards w ON w.id=s.ward_id JOIN locations.districts d ON d.id=w.district_id JOIN locations.regions r ON r.id=d.region_id`); err != nil {
+	if _, err = tx.Exec(ctx, `INSERT INTO locations.search_documents(type,entity_id,region_id,district_id,ward_id,street_id,name,postcode,full_path,region_scope_id)
+ SELECT 'region',r.id,r.id,NULL::integer,NULL::integer,NULL::integer,r.name,NULL::text,r.name,r.id FROM locations.regions r
+ UNION ALL SELECT 'district',d.id,NULL,d.id,NULL,NULL,d.name,NULL,d.name||', '||r.name,r.id FROM locations.districts d JOIN locations.regions r ON r.id=d.region_id
+ UNION ALL SELECT 'ward',w.id,NULL,NULL,w.id,NULL,w.name,w.postcode,w.name||', '||d.name||', '||r.name,r.id FROM locations.wards w JOIN locations.districts d ON d.id=w.district_id JOIN locations.regions r ON r.id=d.region_id
+ UNION ALL SELECT 'street',s.id,NULL,NULL,NULL,s.id,s.name,s.postcode,s.name||', '||w.name||', '||d.name||', '||r.name,r.id FROM locations.streets s JOIN locations.wards w ON w.id=s.ward_id JOIN locations.districts d ON d.id=w.district_id JOIN locations.regions r ON r.id=d.region_id`); err != nil {
 		return err
 	}
 	counts, err := json.Marshal(d.Stats())

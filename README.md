@@ -80,8 +80,8 @@ IDs are one-based source array positions per level, reproducing the legacy seed.
 | GET | `/v1/wards/{slug}/streets` | Streets; `limit=100` (max 500), `offset=0` |
 | GET | `/v1/streets/{id}` | Street by stable source ID |
 | GET | `/v1/postcodes/{postcode}` | First matching ward and all matching streets |
-| GET | `/v1/search?q=...` | Full-text search; optional `type`, `limit=10` (max 50) |
-| GET | `/v1/autocomplete?q=...` | Phrase prefix, minimum two characters; `limit=5` (max 20) |
+| GET | `/v1/search?q=...` | Full-text search; optional `region_slug`, `type`, `limit=10` (max 50) |
+| GET | `/v1/autocomplete?q=...` | Phrase prefix, minimum two characters; optional `region_slug`, `type`; `limit=5` (max 20) |
 | GET | `/v1/stats` | Counts at all four levels |
 | GET | `/v1/docs` | OpenAPI 3.1 document |
 
@@ -90,6 +90,33 @@ Responses retain `{ "data": ..., "meta": ... }`, omitting `meta` when the source
 Ambiguous slugs select the lowest source ID. Add `?region_slug=...` on district routes and `?region_slug=...&district_slug=...` on ward routes, including their child lists. Qualified responses preserve parent context in relevant links. Unqualified legacy link strings remain unchanged.
 
 API search uses PostgreSQL's `simple` full-text configuration with a GIN index, phrase matching, and final-token prefix autocomplete. It searches names, postcodes, and paths at all four levels. Ranking differs from SQLite FTS5 porter; streets are included as the explicitly approved fix. Offline search keeps the npm package's case-insensitive name substring matching. See [parity decisions](docs/FEATURE_PARITY.md).
+
+## Checkout address selection
+
+Default the country to Tanzania and populate the region dropdown from `/v1/regions`. Pass the selected region's **slug** to autocomplete while the customer types:
+
+```http
+GET /v1/autocomplete?q=ibad&type=street&region_slug=shinyanga&limit=10
+```
+
+For full-word searches with stable entity IDs, use:
+
+```http
+GET /v1/search?q=ibadakuli&type=street&region_slug=shinyanga&limit=10
+```
+
+Matching includes parent ward/district names, so `ibadakuli` can return **Airport** in Ibadakuli ward, as well as streets named Ibadakuli. Region filtering uses the actual parent relationship, not text in `full_path`. Both endpoints retain their existing response shapes; omit `region_slug` to search nationwide. A valid but unknown region returns an empty list; a supplied empty or malformed slug returns `BAD_REQUEST`. Autocomplete now supports the same optional `type` values as search.
+
+Display suggestions with the postcode first, using the two existing fields:
+
+```js
+const label = [result.postcode, result.full_path].filter(Boolean).join(", ");
+// "37113, Airport, Ibadakuli, Shinyanga CBD, Shinyanga"
+```
+
+Store the selected postcode/path (and street ID when using search) alongside the selected region. Clear the address selection when the region changes. Debounce typing requests and cancel or ignore stale responses so an old region/query cannot overwrite current suggestions. The API supports Tanzania only; no country query parameter is needed. This repository provides the API, not a checkout frontend.
+
+Existing installations must run `make migrate` before starting the updated API. Migration `0002` backfills a separate, indexed containing-region ID for every existing search document; it preserves IDs, names, postcodes and paths and does not require reimporting the dataset. The importer also populates this field for fresh imports/replacements.
 
 ## Offline package
 
@@ -116,7 +143,7 @@ See `.env.example` for all settings. Defaults: pool max/min 10/2, rate limit 100
 
 Client identity comes from the socket peer. `TRUSTED_PROXIES` accepts comma-separated CIDRs; only peers in those networks may provide forwarding headers. X-Forwarded-For is processed right-to-left until an untrusted hop. CF-Connecting-IP is a fallback only from a trusted immediate peer. Do not trust a Docker network or proxy range without configuring your ingress to sanitize forwarding headers.
 
-Rate limits are process-local, with bounded client bookkeeping; replicas do not share quotas. Responses include X-RateLimit-Limit/Remaining/Reset. Successful v1 data responses retain `Cache-Control: public, max-age=86400`; errors do not. Requests have a 64 KiB body limit, 1 MiB header limit, connection/server timeouts, and a 10-second database read budget. Imports have a separate two-minute statement budget and five-minute command budget. SIGINT/SIGTERM drains HTTP requests before closing the pool. Structured logs omit credentials and unexpected error details from public responses.
+Rate limits are process-local, with bounded client bookkeeping; replicas do not share quotas. Responses include X-RateLimit-Limit/Remaining/Reset. Successful v1 data responses retain `Cache-Control: public, max-age=86400`; errors do not. Requests have a 64 KiB body limit, 1 MiB header limit, connection/server timeouts, and a 10-second database read budget. Migrations and imports have a separate two-minute statement budget and five-minute command budget. SIGINT/SIGTERM drains HTTP requests before closing the pool. Structured logs omit credentials and unexpected error details from public responses.
 
 ## Tests
 

@@ -19,7 +19,7 @@ func run() error {
 	if url == "" {
 		return errors.New("MIGRATION_DATABASE_URL or DATABASE_URL is required")
 	}
-	ctx, cancel := context.WithTimeout(context.Background(), time.Minute)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
 	defer cancel()
 	pool, err := database.Open(ctx, url, 2, 0)
 	if err != nil {
