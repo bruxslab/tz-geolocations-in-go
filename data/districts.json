@@ -1,0 +1,842 @@
+[
+  {
+    "name": "Arumeru",
+    "slug": "arumeru",
+    "region_slug": "arusha"
+  },
+  {
+    "name": "Arusha",
+    "slug": "arusha",
+    "region_slug": "arusha"
+  },
+  {
+    "name": "Arusha CBD",
+    "slug": "arusha-cbd",
+    "region_slug": "arusha"
+  },
+  {
+    "name": "Karatu",
+    "slug": "karatu",
+    "region_slug": "arusha"
+  },
+  {
+    "name": "Longido",
+    "slug": "longido",
+    "region_slug": "arusha"
+  },
+  {
+    "name": "Monduli",
+    "slug": "monduli",
+    "region_slug": "arusha"
+  },
+  {
+    "name": "Ngorongoro",
+    "slug": "ngorongoro",
+    "region_slug": "arusha"
+  },
+  {
+    "name": "Ilala",
+    "slug": "ilala",
+    "region_slug": "dar-es-salaam"
+  },
+  {
+    "name": "Ilala CBD",
+    "slug": "ilala-cbd",
+    "region_slug": "dar-es-salaam"
+  },
+  {
+    "name": "Kigamboni",
+    "slug": "kigamboni",
+    "region_slug": "dar-es-salaam"
+  },
+  {
+    "name": "Kinondoni",
+    "slug": "kinondoni",
+    "region_slug": "dar-es-salaam"
+  },
+  {
+    "name": "Temeke",
+    "slug": "temeke",
+    "region_slug": "dar-es-salaam"
+  },
+  {
+    "name": "Ubungo",
+    "slug": "ubungo",
+    "region_slug": "dar-es-salaam"
+  },
+  {
+    "name": "Bahi",
+    "slug": "bahi",
+    "region_slug": "dodoma"
+  },
+  {
+    "name": "Chamwino",
+    "slug": "chamwino",
+    "region_slug": "dodoma"
+  },
+  {
+    "name": "Chemba",
+    "slug": "chemba",
+    "region_slug": "dodoma"
+  },
+  {
+    "name": "Dodoma",
+    "slug": "dodoma",
+    "region_slug": "dodoma"
+  },
+  {
+    "name": "Dodoma CBD",
+    "slug": "dodoma-cbd",
+    "region_slug": "dodoma"
+  },
+  {
+    "name": "Kondoa",
+    "slug": "kondoa",
+    "region_slug": "dodoma"
+  },
+  {
+    "name": "Kongwa",
+    "slug": "kongwa",
+    "region_slug": "dodoma"
+  },
+  {
+    "name": "Mpwapwa",
+    "slug": "mpwapwa",
+    "region_slug": "dodoma"
+  },
+  {
+    "name": "Bukombe",
+    "slug": "bukombe",
+    "region_slug": "geita"
+  },
+  {
+    "name": "Chato",
+    "slug": "chato",
+    "region_slug": "geita"
+  },
+  {
+    "name": "Geita",
+    "slug": "geita",
+    "region_slug": "geita"
+  },
+  {
+    "name": "Mbogwe",
+    "slug": "mbogwe",
+    "region_slug": "geita"
+  },
+  {
+    "name": "Nyang'hwale",
+    "slug": "nyang-hwale",
+    "region_slug": "geita"
+  },
+  {
+    "name": "Iringa",
+    "slug": "iringa",
+    "region_slug": "iringa"
+  },
+  {
+    "name": "Iringa CBD",
+    "slug": "iringa-cbd",
+    "region_slug": "iringa"
+  },
+  {
+    "name": "Kilolo",
+    "slug": "kilolo",
+    "region_slug": "iringa"
+  },
+  {
+    "name": "Mufindi",
+    "slug": "mufindi",
+    "region_slug": "iringa"
+  },
+  {
+    "name": "Biharamulo",
+    "slug": "biharamulo",
+    "region_slug": "kagera"
+  },
+  {
+    "name": "Bukoba",
+    "slug": "bukoba",
+    "region_slug": "kagera"
+  },
+  {
+    "name": "Bukoba CBD",
+    "slug": "bukoba-cbd",
+    "region_slug": "kagera"
+  },
+  {
+    "name": "Karagwe",
+    "slug": "karagwe",
+    "region_slug": "kagera"
+  },
+  {
+    "name": "Kyerwa",
+    "slug": "kyerwa",
+    "region_slug": "kagera"
+  },
+  {
+    "name": "Missenyi",
+    "slug": "missenyi",
+    "region_slug": "kagera"
+  },
+  {
+    "name": "Muleba",
+    "slug": "muleba",
+    "region_slug": "kagera"
+  },
+  {
+    "name": "Ngara",
+    "slug": "ngara",
+    "region_slug": "kagera"
+  },
+  {
+    "name": "Mlele",
+    "slug": "mlele",
+    "region_slug": "katavi"
+  },
+  {
+    "name": "Mpanda CBD",
+    "slug": "mpanda-cbd",
+    "region_slug": "katavi"
+  },
+  {
+    "name": "Tanganyika",
+    "slug": "tanganyika",
+    "region_slug": "katavi"
+  },
+  {
+    "name": "Buhigwe",
+    "slug": "buhigwe",
+    "region_slug": "kigoma"
+  },
+  {
+    "name": "Kakonko",
+    "slug": "kakonko",
+    "region_slug": "kigoma"
+  },
+  {
+    "name": "Kasulu",
+    "slug": "kasulu",
+    "region_slug": "kigoma"
+  },
+  {
+    "name": "Kibondo",
+    "slug": "kibondo",
+    "region_slug": "kigoma"
+  },
+  {
+    "name": "Kigoma",
+    "slug": "kigoma",
+    "region_slug": "kigoma"
+  },
+  {
+    "name": "Kigoma CBD",
+    "slug": "kigoma-cbd",
+    "region_slug": "kigoma"
+  },
+  {
+    "name": "Uvinza",
+    "slug": "uvinza",
+    "region_slug": "kigoma"
+  },
+  {
+    "name": "Hai",
+    "slug": "hai",
+    "region_slug": "kilimanjaro"
+  },
+  {
+    "name": "Moshi",
+    "slug": "moshi",
+    "region_slug": "kilimanjaro"
+  },
+  {
+    "name": "Moshi CBD",
+    "slug": "moshi-cbd",
+    "region_slug": "kilimanjaro"
+  },
+  {
+    "name": "Mwanga",
+    "slug": "mwanga",
+    "region_slug": "kilimanjaro"
+  },
+  {
+    "name": "Rombo",
+    "slug": "rombo",
+    "region_slug": "kilimanjaro"
+  },
+  {
+    "name": "Same",
+    "slug": "same",
+    "region_slug": "kilimanjaro"
+  },
+  {
+    "name": "Siha",
+    "slug": "siha",
+    "region_slug": "kilimanjaro"
+  },
+  {
+    "name": "Kilwa",
+    "slug": "kilwa",
+    "region_slug": "lindi"
+  },
+  {
+    "name": "Lindi",
+    "slug": "lindi",
+    "region_slug": "lindi"
+  },
+  {
+    "name": "Lindi CBD",
+    "slug": "lindi-cbd",
+    "region_slug": "lindi"
+  },
+  {
+    "name": "Liwale",
+    "slug": "liwale",
+    "region_slug": "lindi"
+  },
+  {
+    "name": "Nachingwea",
+    "slug": "nachingwea",
+    "region_slug": "lindi"
+  },
+  {
+    "name": "Ruangwa",
+    "slug": "ruangwa",
+    "region_slug": "lindi"
+  },
+  {
+    "name": "Babati",
+    "slug": "babati",
+    "region_slug": "manyara"
+  },
+  {
+    "name": "Babati CBD",
+    "slug": "babati-cbd",
+    "region_slug": "manyara"
+  },
+  {
+    "name": "Hanang",
+    "slug": "hanang",
+    "region_slug": "manyara"
+  },
+  {
+    "name": "Kiteto",
+    "slug": "kiteto",
+    "region_slug": "manyara"
+  },
+  {
+    "name": "Mbulu",
+    "slug": "mbulu",
+    "region_slug": "manyara"
+  },
+  {
+    "name": "Simanjiro",
+    "slug": "simanjiro",
+    "region_slug": "manyara"
+  },
+  {
+    "name": "Bunda",
+    "slug": "bunda",
+    "region_slug": "mara"
+  },
+  {
+    "name": "Butiama",
+    "slug": "butiama",
+    "region_slug": "mara"
+  },
+  {
+    "name": "Musoma CBD",
+    "slug": "musoma-cbd",
+    "region_slug": "mara"
+  },
+  {
+    "name": "Rorya",
+    "slug": "rorya",
+    "region_slug": "mara"
+  },
+  {
+    "name": "Serengeti",
+    "slug": "serengeti",
+    "region_slug": "mara"
+  },
+  {
+    "name": "Tarime",
+    "slug": "tarime",
+    "region_slug": "mara"
+  },
+  {
+    "name": "Chunya",
+    "slug": "chunya",
+    "region_slug": "mbeya"
+  },
+  {
+    "name": "Kyela",
+    "slug": "kyela",
+    "region_slug": "mbeya"
+  },
+  {
+    "name": "Mbarali",
+    "slug": "mbarali",
+    "region_slug": "mbeya"
+  },
+  {
+    "name": "Mbeya",
+    "slug": "mbeya",
+    "region_slug": "mbeya"
+  },
+  {
+    "name": "Mbeya CBD",
+    "slug": "mbeya-cbd",
+    "region_slug": "mbeya"
+  },
+  {
+    "name": "Rungwe",
+    "slug": "rungwe",
+    "region_slug": "mbeya"
+  },
+  {
+    "name": "Magharibi",
+    "slug": "magharibi",
+    "region_slug": "mjini-magharibi"
+  },
+  {
+    "name": "Mjini",
+    "slug": "mjini",
+    "region_slug": "mjini-magharibi"
+  },
+  {
+    "name": "Gairo",
+    "slug": "gairo",
+    "region_slug": "morogoro"
+  },
+  {
+    "name": "Kilombero",
+    "slug": "kilombero",
+    "region_slug": "morogoro"
+  },
+  {
+    "name": "Kilosa",
+    "slug": "kilosa",
+    "region_slug": "morogoro"
+  },
+  {
+    "name": "Malinyi",
+    "slug": "malinyi",
+    "region_slug": "morogoro"
+  },
+  {
+    "name": "Morogoro",
+    "slug": "morogoro",
+    "region_slug": "morogoro"
+  },
+  {
+    "name": "Morogoro CBD",
+    "slug": "morogoro-cbd",
+    "region_slug": "morogoro"
+  },
+  {
+    "name": "Mvomero",
+    "slug": "mvomero",
+    "region_slug": "morogoro"
+  },
+  {
+    "name": "Ulanga",
+    "slug": "ulanga",
+    "region_slug": "morogoro"
+  },
+  {
+    "name": "Masasi",
+    "slug": "masasi",
+    "region_slug": "mtwara"
+  },
+  {
+    "name": "Mtwara",
+    "slug": "mtwara",
+    "region_slug": "mtwara"
+  },
+  {
+    "name": "Mtwara CBD",
+    "slug": "mtwara-cbd",
+    "region_slug": "mtwara"
+  },
+  {
+    "name": "Nanyumbu",
+    "slug": "nanyumbu",
+    "region_slug": "mtwara"
+  },
+  {
+    "name": "Newala",
+    "slug": "newala",
+    "region_slug": "mtwara"
+  },
+  {
+    "name": "Tandahimba",
+    "slug": "tandahimba",
+    "region_slug": "mtwara"
+  },
+  {
+    "name": "Ilemela",
+    "slug": "ilemela",
+    "region_slug": "mwanza"
+  },
+  {
+    "name": "Kwimba",
+    "slug": "kwimba",
+    "region_slug": "mwanza"
+  },
+  {
+    "name": "Magu",
+    "slug": "magu",
+    "region_slug": "mwanza"
+  },
+  {
+    "name": "Misungwi",
+    "slug": "misungwi",
+    "region_slug": "mwanza"
+  },
+  {
+    "name": "Nyamagana",
+    "slug": "nyamagana",
+    "region_slug": "mwanza"
+  },
+  {
+    "name": "Sengerema",
+    "slug": "sengerema",
+    "region_slug": "mwanza"
+  },
+  {
+    "name": "Ukerewe",
+    "slug": "ukerewe",
+    "region_slug": "mwanza"
+  },
+  {
+    "name": "Ludewa",
+    "slug": "ludewa",
+    "region_slug": "njombe"
+  },
+  {
+    "name": "Makete",
+    "slug": "makete",
+    "region_slug": "njombe"
+  },
+  {
+    "name": "Njombe",
+    "slug": "njombe",
+    "region_slug": "njombe"
+  },
+  {
+    "name": "Njombe CBD",
+    "slug": "njombe-cbd",
+    "region_slug": "njombe"
+  },
+  {
+    "name": "Wanging'ombe",
+    "slug": "wanging-ombe",
+    "region_slug": "njombe"
+  },
+  {
+    "name": "Micheweni",
+    "slug": "micheweni",
+    "region_slug": "pemba-north"
+  },
+  {
+    "name": "Wete",
+    "slug": "wete",
+    "region_slug": "pemba-north"
+  },
+  {
+    "name": "Chake Chake",
+    "slug": "chake-chake",
+    "region_slug": "pemba-south"
+  },
+  {
+    "name": "Mkoani",
+    "slug": "mkoani",
+    "region_slug": "pemba-south"
+  },
+  {
+    "name": "Bagamoyo",
+    "slug": "bagamoyo",
+    "region_slug": "pwani"
+  },
+  {
+    "name": "Kibaha",
+    "slug": "kibaha",
+    "region_slug": "pwani"
+  },
+  {
+    "name": "Kibaha CBD",
+    "slug": "kibaha-cbd",
+    "region_slug": "pwani"
+  },
+  {
+    "name": "Kibiti",
+    "slug": "kibiti",
+    "region_slug": "pwani"
+  },
+  {
+    "name": "Kisarawe",
+    "slug": "kisarawe",
+    "region_slug": "pwani"
+  },
+  {
+    "name": "Mafia",
+    "slug": "mafia",
+    "region_slug": "pwani"
+  },
+  {
+    "name": "Mkuranga",
+    "slug": "mkuranga",
+    "region_slug": "pwani"
+  },
+  {
+    "name": "Rufiji",
+    "slug": "rufiji",
+    "region_slug": "pwani"
+  },
+  {
+    "name": "Kalambo",
+    "slug": "kalambo",
+    "region_slug": "rukwa"
+  },
+  {
+    "name": "Nkasi",
+    "slug": "nkasi",
+    "region_slug": "rukwa"
+  },
+  {
+    "name": "Sumbawanga",
+    "slug": "sumbawanga",
+    "region_slug": "rukwa"
+  },
+  {
+    "name": "Sumbawanga CBD",
+    "slug": "sumbawanga-cbd",
+    "region_slug": "rukwa"
+  },
+  {
+    "name": "Mbinga",
+    "slug": "mbinga",
+    "region_slug": "ruvuma"
+  },
+  {
+    "name": "Namtumbo",
+    "slug": "namtumbo",
+    "region_slug": "ruvuma"
+  },
+  {
+    "name": "Nyasa",
+    "slug": "nyasa",
+    "region_slug": "ruvuma"
+  },
+  {
+    "name": "Songea",
+    "slug": "songea",
+    "region_slug": "ruvuma"
+  },
+  {
+    "name": "Songea CBD",
+    "slug": "songea-cbd",
+    "region_slug": "ruvuma"
+  },
+  {
+    "name": "Tunduru",
+    "slug": "tunduru",
+    "region_slug": "ruvuma"
+  },
+  {
+    "name": "Kahama",
+    "slug": "kahama",
+    "region_slug": "shinyanga"
+  },
+  {
+    "name": "Kishapu",
+    "slug": "kishapu",
+    "region_slug": "shinyanga"
+  },
+  {
+    "name": "Shinyanga",
+    "slug": "shinyanga",
+    "region_slug": "shinyanga"
+  },
+  {
+    "name": "Shinyanga CBD",
+    "slug": "shinyanga-cbd",
+    "region_slug": "shinyanga"
+  },
+  {
+    "name": "Bariadi",
+    "slug": "bariadi",
+    "region_slug": "simiyu"
+  },
+  {
+    "name": "Busega",
+    "slug": "busega",
+    "region_slug": "simiyu"
+  },
+  {
+    "name": "Itilima",
+    "slug": "itilima",
+    "region_slug": "simiyu"
+  },
+  {
+    "name": "Maswa",
+    "slug": "maswa",
+    "region_slug": "simiyu"
+  },
+  {
+    "name": "Meatu",
+    "slug": "meatu",
+    "region_slug": "simiyu"
+  },
+  {
+    "name": "Ikungi",
+    "slug": "ikungi",
+    "region_slug": "singida"
+  },
+  {
+    "name": "Iramba",
+    "slug": "iramba",
+    "region_slug": "singida"
+  },
+  {
+    "name": "Manyoni",
+    "slug": "manyoni",
+    "region_slug": "singida"
+  },
+  {
+    "name": "Mkalama",
+    "slug": "mkalama",
+    "region_slug": "singida"
+  },
+  {
+    "name": "Singida",
+    "slug": "singida",
+    "region_slug": "singida"
+  },
+  {
+    "name": "Singida CBD",
+    "slug": "singida-cbd",
+    "region_slug": "singida"
+  },
+  {
+    "name": "Ileje",
+    "slug": "ileje",
+    "region_slug": "songwe"
+  },
+  {
+    "name": "Mbozi",
+    "slug": "mbozi",
+    "region_slug": "songwe"
+  },
+  {
+    "name": "Momba",
+    "slug": "momba",
+    "region_slug": "songwe"
+  },
+  {
+    "name": "Songwe",
+    "slug": "songwe",
+    "region_slug": "songwe"
+  },
+  {
+    "name": "Igunga",
+    "slug": "igunga",
+    "region_slug": "tabora"
+  },
+  {
+    "name": "Kaliua",
+    "slug": "kaliua",
+    "region_slug": "tabora"
+  },
+  {
+    "name": "Nzega",
+    "slug": "nzega",
+    "region_slug": "tabora"
+  },
+  {
+    "name": "Sikonge",
+    "slug": "sikonge",
+    "region_slug": "tabora"
+  },
+  {
+    "name": "Tabora CBD",
+    "slug": "tabora-cbd",
+    "region_slug": "tabora"
+  },
+  {
+    "name": "Urambo",
+    "slug": "urambo",
+    "region_slug": "tabora"
+  },
+  {
+    "name": "Uyui",
+    "slug": "uyui",
+    "region_slug": "tabora"
+  },
+  {
+    "name": "Handeni",
+    "slug": "handeni",
+    "region_slug": "tanga"
+  },
+  {
+    "name": "Kilindi",
+    "slug": "kilindi",
+    "region_slug": "tanga"
+  },
+  {
+    "name": "Korogwe",
+    "slug": "korogwe",
+    "region_slug": "tanga"
+  },
+  {
+    "name": "Lushoto",
+    "slug": "lushoto",
+    "region_slug": "tanga"
+  },
+  {
+    "name": "Mkinga",
+    "slug": "mkinga",
+    "region_slug": "tanga"
+  },
+  {
+    "name": "Muheza",
+    "slug": "muheza",
+    "region_slug": "tanga"
+  },
+  {
+    "name": "Pangani",
+    "slug": "pangani",
+    "region_slug": "tanga"
+  },
+  {
+    "name": "Tanga",
+    "slug": "tanga",
+    "region_slug": "tanga"
+  },
+  {
+    "name": "Tanga CBD",
+    "slug": "tanga-cbd",
+    "region_slug": "tanga"
+  },
+  {
+    "name": "Kaskazini A",
+    "slug": "kaskazini-a",
+    "region_slug": "unguja-north"
+  },
+  {
+    "name": "Kaskazini B",
+    "slug": "kaskazini-b",
+    "region_slug": "unguja-north"
+  },
+  {
+    "name": "Kati",
+    "slug": "kati",
+    "region_slug": "unguja-south"
+  },
+  {
+    "name": "Kusini",
+    "slug": "kusini",
+    "region_slug": "unguja-south"
+  }
+]

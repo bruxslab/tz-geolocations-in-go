@@ -1,0 +1,22 @@
+{
+  "source": "https://github.com/unctom/tz-locations",
+  "commit": "d835ea318dbb17f789d4b7195b600e2e07e20f1e",
+  "files": {
+    "regions.json": {
+      "sha256": "1efe90052c314274739ced9ad920b7f441896fc7cb28330d87c126c2d9f0318a",
+      "count": 31
+    },
+    "districts.json": {
+      "sha256": "227df5cdbf4f78c68e1bf69b97e9390fef434ba830e06b6a32522f095cf00743",
+      "count": 168
+    },
+    "wards.json": {
+      "sha256": "e3adfe6ad7e7f1b9ed26c0e1d656643ed7079ccc9170ebbc4974651cb2737be5",
+      "count": 4054
+    },
+    "streets.json": {
+      "sha256": "f8651b2c572ca70dff3642fff886cbe944641b4daec68166fb494cae9aea5ad9",
+      "count": 75061
+    }
+  }
+}

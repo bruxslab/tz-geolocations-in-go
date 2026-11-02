@@ -1,0 +1,126 @@
+[
+  {
+    "name": "Arusha",
+    "slug": "arusha"
+  },
+  {
+    "name": "Dar Es Salaam",
+    "slug": "dar-es-salaam"
+  },
+  {
+    "name": "Dodoma",
+    "slug": "dodoma"
+  },
+  {
+    "name": "Geita",
+    "slug": "geita"
+  },
+  {
+    "name": "Iringa",
+    "slug": "iringa"
+  },
+  {
+    "name": "Kagera",
+    "slug": "kagera"
+  },
+  {
+    "name": "Katavi",
+    "slug": "katavi"
+  },
+  {
+    "name": "Kigoma",
+    "slug": "kigoma"
+  },
+  {
+    "name": "Kilimanjaro",
+    "slug": "kilimanjaro"
+  },
+  {
+    "name": "Lindi",
+    "slug": "lindi"
+  },
+  {
+    "name": "Manyara",
+    "slug": "manyara"
+  },
+  {
+    "name": "Mara",
+    "slug": "mara"
+  },
+  {
+    "name": "Mbeya",
+    "slug": "mbeya"
+  },
+  {
+    "name": "Mjini Magharibi",
+    "slug": "mjini-magharibi"
+  },
+  {
+    "name": "Morogoro",
+    "slug": "morogoro"
+  },
+  {
+    "name": "Mtwara",
+    "slug": "mtwara"
+  },
+  {
+    "name": "Mwanza",
+    "slug": "mwanza"
+  },
+  {
+    "name": "Njombe",
+    "slug": "njombe"
+  },
+  {
+    "name": "Pemba North",
+    "slug": "pemba-north"
+  },
+  {
+    "name": "Pemba South",
+    "slug": "pemba-south"
+  },
+  {
+    "name": "Pwani",
+    "slug": "pwani"
+  },
+  {
+    "name": "Rukwa",
+    "slug": "rukwa"
+  },
+  {
+    "name": "Ruvuma",
+    "slug": "ruvuma"
+  },
+  {
+    "name": "Shinyanga",
+    "slug": "shinyanga"
+  },
+  {
+    "name": "Simiyu",
+    "slug": "simiyu"
+  },
+  {
+    "name": "Singida",
+    "slug": "singida"
+  },
+  {
+    "name": "Songwe",
+    "slug": "songwe"
+  },
+  {
+    "name": "Tabora",
+    "slug": "tabora"
+  },
+  {
+    "name": "Tanga",
+    "slug": "tanga"
+  },
+  {
+    "name": "Unguja North",
+    "slug": "unguja-north"
+  },
+  {
+    "name": "Unguja South",
+    "slug": "unguja-south"
+  }
+]
