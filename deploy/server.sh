@@ -68,6 +68,8 @@ restore() {
   exit 1
 }
 trap restore ERR
+compose pull redis
+compose up -d --no-recreate redis
 compose up -d --no-deps api
 healthy=false
 for attempt in {1..30}; do

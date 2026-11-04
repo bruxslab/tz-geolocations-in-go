@@ -10,6 +10,7 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/bruxslab/tz-geolocations-in-go/internal/cache"
 	"github.com/bruxslab/tz-geolocations-in-go/internal/config"
 	"github.com/bruxslab/tz-geolocations-in-go/internal/database"
 	"github.com/bruxslab/tz-geolocations-in-go/internal/handlers"
@@ -31,11 +32,21 @@ func run() error {
 		return err
 	}
 	defer pool.Close()
-	var ready bool
-	if err = pool.QueryRow(ctx, "SELECT singleton FROM locations.dataset_version WHERE singleton").Scan(&ready); err != nil || !ready {
+	var fingerprint string
+	if err = pool.QueryRow(ctx, "SELECT fingerprint FROM locations.dataset_version WHERE singleton").Scan(&fingerprint); err != nil || fingerprint == "" {
 		return errors.New("application dataset is not initialized; run migrate and import")
 	}
-	server := &http.Server{Addr: c.Address, Handler: handlers.New(&repository.Repository{Pool: pool}, middleware.Options{RateRequests: c.RateRequests, RateWindow: c.RateWindow, Origins: c.CORSOrigins, TrustedProxies: c.TrustedProxies, Logger: logger}), ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 15 * time.Second, WriteTimeout: 15 * time.Second, IdleTimeout: 60 * time.Second, MaxHeaderBytes: 1 << 20}
+	var store cache.Store
+	if c.RedisURL != "" {
+		rc, e := cache.New(c.RedisURL, c.DatabaseURL+"\x00"+fingerprint, c.CacheTTL)
+		if e != nil {
+			return e
+		}
+		defer rc.Close()
+		store = rc
+		logger.Info("Redis response cache configured", "ttl", c.CacheTTL)
+	}
+	server := &http.Server{Addr: c.Address, Handler: handlers.New(&repository.Repository{Pool: pool}, middleware.Options{RateRequests: c.RateRequests, RateWindow: c.RateWindow, Origins: c.CORSOrigins, TrustedProxies: c.TrustedProxies, Logger: logger}, store), ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 15 * time.Second, WriteTimeout: 15 * time.Second, IdleTimeout: 60 * time.Second, MaxHeaderBytes: 1 << 20}
 	done := make(chan error, 1)
 	go func() { logger.Info("API listening", "address", c.Address); done <- server.ListenAndServe() }()
 	select {

@@ -12,6 +12,7 @@ import (
 	"strings"
 
 	"github.com/bruxslab/tz-geolocations-in-go/docs"
+	"github.com/bruxslab/tz-geolocations-in-go/internal/cache"
 	"github.com/bruxslab/tz-geolocations-in-go/internal/middleware"
 	"github.com/bruxslab/tz-geolocations-in-go/internal/models"
 	"github.com/bruxslab/tz-geolocations-in-go/internal/repository"
@@ -36,15 +37,19 @@ type response struct {
 }
 type endpoint func(*http.Request) (response, error)
 type API struct {
-	repo *repository.Repository
-	log  *slog.Logger
+	repo  *repository.Repository
+	log   *slog.Logger
+	cache cache.Store
 }
 
-func New(repo *repository.Repository, options middleware.Options) http.Handler {
+func New(repo *repository.Repository, options middleware.Options, stores ...cache.Store) http.Handler {
 	if options.Logger == nil {
 		options.Logger = slog.Default()
 	}
-	a := &API{repo, options.Logger}
+	a := &API{repo: repo, log: options.Logger}
+	if len(stores) > 0 {
+		a.cache = stores[0]
+	}
 	mux := http.NewServeMux()
 	for path, fn := range map[string]endpoint{
 		"/v1/regions": a.regions, "/v1/regions/{slug}": a.region, "/v1/regions/{slug}/districts": a.districts,
@@ -83,6 +88,13 @@ func (a *API) handle(fn endpoint) http.HandlerFunc {
 			middleware.Error(w, 404, "NOT_FOUND", "Endpoint not found")
 			return
 		}
+		key := r.URL.Path + "?" + r.URL.Query().Encode()
+		if a.cache != nil {
+			if body, ok := a.cache.Get(r.Context(), key); ok {
+				writeJSON(w, r, body)
+				return
+			}
+		}
 		result, err := fn(r)
 		if err != nil {
 			var e *apiError
@@ -103,9 +115,17 @@ func (a *API) handle(fn endpoint) http.HandlerFunc {
 			middleware.Error(w, 500, "INTERNAL_ERROR", "An unexpected error occurred")
 			return
 		}
-		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-		w.Header().Set("Cache-Control", "public, max-age=86400")
-		_, _ = w.Write(encoded)
+		if a.cache != nil {
+			a.cache.Set(r.Context(), key, encoded)
+		}
+		writeJSON(w, r, encoded)
+	}
+}
+func writeJSON(w http.ResponseWriter, r *http.Request, body []byte) {
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.Header().Set("Cache-Control", "public, max-age=86400")
+	if r.Method != http.MethodHead {
+		_, _ = w.Write(body)
 	}
 }
 func params(r *http.Request) (string, string, string, error) {

@@ -173,3 +173,5 @@ server.sh deploy with that release SHA and the already published API digest.
 No bootstrap, reimport, database restart or database-volume removal is needed.
 A successful in-container /healthcheck does not prove host publication; the
 deployment's host-side regions query must also pass.
+
+Redis caching: routine deployment now pulls and starts the dedicated Redis service before replacing the API. PostgreSQL is left running. Redis is confined to the internal backend network, limited to 64 MiB of cache data, and disposable. `CACHE_TTL_SECONDS` defaults to 300; API requests fall back to PostgreSQL if Redis fails. Restart all API replicas after dataset replacement to load the new cache namespace.

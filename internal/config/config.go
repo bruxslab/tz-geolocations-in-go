@@ -13,6 +13,8 @@ import (
 
 type Config struct {
 	Address, DatabaseURL string
+	RedisURL             string
+	CacheTTL             time.Duration
 	MaxConns, MinConns   int32
 	RateRequests         int
 	RateWindow           time.Duration
@@ -41,8 +43,9 @@ func Load() (Config, error) {
 		min, max  int
 		dst       *int
 	}
-	var max, min, seconds int
+	var max, min, seconds, cacheSeconds int
 	values := []integerSetting{
+		{"CACHE_TTL_SECONDS", "300", 1, 86400, &cacheSeconds},
 		{"DATABASE_MAX_CONNS", "10", 1, 1000, &max},
 		{"DATABASE_MIN_CONNS", "2", 0, 1000, &min},
 		{"RATE_LIMIT_REQUESTS", "100", 1, 1000000, &c.RateRequests},
@@ -58,6 +61,8 @@ func Load() (Config, error) {
 	if min > max {
 		return c, errors.New("DATABASE_MIN_CONNS exceeds DATABASE_MAX_CONNS")
 	}
+	c.RedisURL = os.Getenv("REDIS_URL")
+	c.CacheTTL = time.Duration(cacheSeconds) * time.Second
 	c.MaxConns = int32(max)
 	c.MinConns = int32(min)
 	c.RateWindow = time.Duration(seconds) * time.Second
