@@ -28,3 +28,19 @@ func TestConfiguration(t *testing.T) {
 		t.Fatal("invalid proxy")
 	}
 }
+
+func TestCacheConfiguration(t *testing.T) {
+	t.Setenv("DATABASE_URL", "postgres://localhost/tz_locations")
+	t.Setenv("REDIS_URL", "redis://localhost:6379/0")
+	for _, raw := range []string{"0", "-1", "86401", "bad"} {
+		t.Setenv("CACHE_TTL_SECONDS", raw)
+		if _, err := Load(); err == nil {
+			t.Fatalf("accepted TTL %q", raw)
+		}
+	}
+	t.Setenv("CACHE_TTL_SECONDS", "60")
+	c, err := Load()
+	if err != nil || c.RedisURL != "redis://localhost:6379/0" || c.CacheTTL.Seconds() != 60 {
+		t.Fatal(c, err)
+	}
+}

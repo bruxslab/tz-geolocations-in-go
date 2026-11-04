@@ -11,6 +11,16 @@ x-tool: &tool
       condition: service_healthy
 
 services:
+  redis:
+    image: redis:8.6.6-alpine
+    command: [redis-server, --save, '', --appendonly, 'no', --maxmemory, 64mb, --maxmemory-policy, allkeys-lru]
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 5s
+      timeout: 2s
+      retries: 10
+    restart: unless-stopped
+    ports: ["127.0.0.1:${REDIS_PORT:-56379}:6379"]
   postgres:
     image: postgres:18-bookworm
     environment:
@@ -60,6 +70,8 @@ services:
     image: tz-locations-api:local
     build: .
     environment:
+      REDIS_URL: redis://redis:6379/0
+      CACHE_TTL_SECONDS: ${CACHE_TTL_SECONDS:-300}
       HTTP_HOST: 0.0.0.0
       HTTP_PORT: "8080"
       DATABASE_URL: postgres://tz_reader:${TZ_RUNTIME_PASSWORD:?Set TZ_RUNTIME_PASSWORD in .env}@postgres:5432/tz_locations?sslmode=disable
@@ -72,6 +84,8 @@ services:
     ports:
       - "127.0.0.1:${HTTP_PORT:-8080}:8080"
     depends_on:
+      redis:
+        condition: service_started
       postgres:
         condition: service_healthy
     read_only: true

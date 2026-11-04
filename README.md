@@ -195,3 +195,11 @@ The original Python scraper/parser/tests remain in `scraper/` as reference inges
 - **Missing test URL:** export `TEST_DATABASE_URL` from your local configuration; do not point tests at development.
 
 MIT license; upstream attribution is retained in `LICENSE`.
+
+### Redis response caching
+
+Compose starts a dedicated Redis cache. Successful v1 data responses (including search and autocomplete) are cached for `CACHE_TTL_SECONDS` (default 300). Repeated requests bypass PostgreSQL and JSON serialization; errors are never cached. Keys include the path, all query parameters, database identity and dataset fingerprint. GET and HEAD share entries. Rate limits and CORS still run on every request.
+
+For host Go tooling, export `REDIS_URL=redis://127.0.0.1:56379/0` after `docker compose up -d redis`. Omit `REDIS_URL` to disable server caching. Redis operations have a 100 ms budget, no command retries, and a five-second bypass after failures; requests fall back to PostgreSQL. Redis uses a 64 MiB memory limit with LRU eviction and no persistence. Bodies over 2 MiB bypass storage.
+
+After replacing the dataset, restart **all API replicas** to load its new fingerprint and stop serving old cached responses. Otherwise an old replica can continue filling its old namespace. Restart after response-format changes too; bump the cache key version in `internal/cache/redis.go` when changing serialized responses. Existing browser cache lifetimes are unchanged.

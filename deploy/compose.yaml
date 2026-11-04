@@ -13,6 +13,19 @@ x-owner-env: &owner-env
   MIGRATION_DATABASE_URL: postgres://tz_owner:${TZ_OWNER_PASSWORD:?Set TZ_OWNER_PASSWORD}@postgres:5432/tz_locations?sslmode=disable
   RUNTIME_DATABASE_ROLE: tz_reader
 services:
+  redis:
+    image: redis:8.6.6-alpine
+    command: [redis-server, --save, '', --appendonly, 'no', --maxmemory, 64mb, --maxmemory-policy, allkeys-lru]
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 5s
+      timeout: 2s
+      retries: 10
+    restart: unless-stopped
+    networks: [backend]
+    mem_limit: 128m
+    cpus: 0.25
+    pids_limit: 64
   postgres:
     image: postgres:18-bookworm
     environment:
@@ -50,6 +63,8 @@ services:
     networks: [frontend, backend]
     cpus: 0.25
     environment:
+      REDIS_URL: redis://redis:6379/0
+      CACHE_TTL_SECONDS: ${CACHE_TTL_SECONDS:-300}
       HTTP_HOST: 0.0.0.0
       HTTP_PORT: '8080'
       DATABASE_URL: postgres://tz_reader:${TZ_RUNTIME_PASSWORD:?Set TZ_RUNTIME_PASSWORD}@postgres:5432/tz_locations?sslmode=disable
